@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Size Guide - PolymerShop Modern</title>
+  <meta name="description" content="Find your perfect fit with PolymerShop size guide - detailed measurements for clothing and accessories">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+      --ocean-deep: #0a1929;
+      --ocean-dark: #0f3057;
+      --ocean-primary: #1e5f74;
+      --ocean-secondary: #2c7da0;
+      --ocean-accent: #4dd0e1;
+      --ocean-light: #a8dadc;
+      --ocean-sand: #f1faee;
+      --ocean-white: #ffffff;
+      --text-primary: #f1faee;
+      --text-secondary: #a8dadc;
+      --text-muted: #6c7b95;
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .page-header {
+      background: var(--ocean-gradient-surface);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ocean-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0;
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link.active {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--ocean-accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .page-content {
+      min-height: 80vh;
+      padding: 2rem;
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Size Guide Navigation */
+    .size-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      justify-content: center;
+    }
+
+    .size-nav-btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(77, 208, 225, 0.2);
+      border-radius: 25px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .size-nav-btn:hover,
+    .size-nav-btn.active {
+      background: var(--ocean-accent);
+      border-color: var(--ocean-accent);
+      color: var(--ocean-deep);
+      transform: translateY(-2px);
+    }
+
+    /* Size Guide Content */
+    .size-guide-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .size-info {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .size-info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .size-info p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .size-tips {
+      background: rgba(77, 208, 225, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .size-tips h4 {
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .size-tips ul {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+    }
+
+    /* Size Chart */
+    .size-chart {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+      overflow-x: auto;
+    }
+
+    .size-chart h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+      text-align: center;
+    }
+
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .size-table th,
+    .size-table td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .size-table th {
+      background: rgba(77, 208, 225, 0.1);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .size-table td {
+      color: var(--text-secondary);
+    }
+
+    .size-table tr:hover td {
+      background: rgba(77, 208, 225, 0.05);
+    }
+
+    /* Size Categories */
+    .size-categories {
+      margin-top: 3rem;
+    }
+
+    .category-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .category-section h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .category-section p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* Measurement Guide */
+    .measurement-guide {
+      background: rgba(77, 208, 225, 0.1);
+      border: 2px solid var(--ocean-accent);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .measurement-guide h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .measurement-guide p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .measurement-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--ocean-gradient-accent);
+      color: var(--ocean-deep);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .measurement-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      margin-top: 4rem;
+      border-top: 1px solid var(--ocean-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--ocean-gradient-accent);
+      z-index: 1;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ocean-accent);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(77, 208, 225, 0.2);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-content {
+        padding: 1rem;
+      }
+
+      .size-guide-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .size-nav {
+        gap: 0.5rem;
+      }
+
+      .size-nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .size-table {
+        font-size: 0.8rem;
+      }
+
+      .category-section {
+        padding: 1.5rem;
+      }
+
+      .measurement-guide {
+        padding: 1.5rem;
+      }
+
+      .footer-content {
+        padding: 2rem 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <a href="/" class="header-logo">PolymerShop</a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/electronics.html" class="nav-link">Electronics</a>
+        <a href="/clothing.html" class="nav-link">Clothing</a>
+        <a href="/home-garden.html" class="nav-link">Home & Garden</a>
+        <a href="/sports.html" class="nav-link">Sports</a>
+        <a href="/all-categories.html" class="nav-link">All Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="content-container">
+      <h1 class="page-title">📏 Size Guide</h1>
+      <p class="page-subtitle">
+        Find your perfect fit with our comprehensive size guide. Accurate measurements
+        and sizing information to ensure the best shopping experience.
+      </p>
+
+      <!-- Size Guide Navigation -->
+      <div class="size-nav">
+        <button class="size-nav-btn active" onclick="showSizeGuide('tops')">Tops & Shirts</button>
+        <button class="size-nav-btn" onclick="showSizeGuide('bottoms')">Bottoms & Pants</button>
+        <button class="size-nav-btn" onclick="showSizeGuide('dresses')">Dresses</button>
+        <button class="size-nav-btn" onclick="showSizeGuide('shoes')">Shoes</button>
+        <button class="size-nav-btn" onclick="showSizeGuide('accessories')">Accessories</button>
+      </div>
+
+      <!-- Size Guide Content -->
+      <div id="size-guide-content" class="size-guide-content">
+        <!-- Default: Tops & Shirts -->
+        <div class="size-info">
+          <h3>Tops & Shirts</h3>
+          <p>Our tops and shirts are designed for a comfortable, flattering fit. All measurements are in inches and represent the garment measurements, not body measurements.</p>
+
+          <div class="size-tips">
+            <h4>💡 Sizing Tips</h4>
+            <ul>
+              <li>Chest measurement is the most important for tops</li>
+              <li>Consider the fit preference (slim, regular, relaxed)</li>
+              <li>Check the fabric content for stretch and drape</li>
+              <li>When in doubt, size up for a more comfortable fit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="size-chart">
+          <h3>Size Chart - Tops & Shirts</h3>
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Chest (inches)</th>
+                <th>Waist (inches)</th>
+                <th>Sleeve Length (inches)</th>
+                <th>Shoulder Width (inches)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>XS</strong></td>
+                <td>34-36</td>
+                <td>28-30</td>
+                <td>32-33</td>
+                <td>16-17</td>
+              </tr>
+              <tr>
+                <td><strong>S</strong></td>
+                <td>36-38</td>
+                <td>30-32</td>
+                <td>33-34</td>
+                <td>17-18</td>
+              </tr>
+              <tr>
+                <td><strong>M</strong></td>
+                <td>38-40</td>
+                <td>32-34</td>
+                <td>34-35</td>
+                <td>18-19</td>
+              </tr>
+              <tr>
+                <td><strong>L</strong></td>
+                <td>40-42</td>
+                <td>34-36</td>
+                <td>35-36</td>
+                <td>19-20</td>
+              </tr>
+              <tr>
+                <td><strong>XL</strong></td>
+                <td>42-44</td>
+                <td>36-38</td>
+                <td>36-37</td>
+                <td>20-21</td>
+              </tr>
+              <tr>
+                <td><strong>XXL</strong></td>
+                <td>44-46</td>
+                <td>38-40</td>
+                <td>37-38</td>
+                <td>21-22</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Size Categories -->
+      <div class="size-categories">
+        <div class="category-section">
+          <h3>👕 Tops & T-Shirts</h3>
+          <p>Standard sizing with comfortable fit. Our cotton blends provide excellent stretch and recovery. For athletic fits, consider sizing up.</p>
+        </div>
+
+        <div class="category-section">
+          <h3>👔 Dress Shirts</h3>
+          <p>Formal wear with traditional sizing. Designed for a tailored fit with room for movement. Check collar size for proper fit.</p>
+        </div>
+
+        <div class="category-section">
+          <h3>🧥 Outerwear</h3>
+          <p>Layering pieces with relaxed fit. Size up if you plan to wear heavy layers underneath. Check shoulder and sleeve measurements.</p>
+        </div>
+
+        <div class="category-section">
+          <h3>👖 Bottoms & Pants</h3>
+          <p>Standard inseam lengths with comfortable waistbands. Consider rise preference (low, mid, high) when selecting size.</p>
+        </div>
+
+        <div class="category-section">
+          <h3>👗 Dresses</h3>
+          <p>Flattering fits with stretch fabrics. Bust and hip measurements are most important. Check length preferences on product pages.</p>
+        </div>
+      </div>
+
+      <!-- Measurement Guide -->
+      <div class="measurement-guide">
+        <h3>How to Measure Yourself</h3>
+        <p>Accurate measurements ensure the perfect fit. Follow our step-by-step guide for the best results.</p>
+        <a href="#measurements" class="measurement-button" onclick="alert('Measurement guide would open here')">
+          📏 View Measurement Guide →
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul class="footer-links">
+            <li><a href="/electronics.html">💻 Electronics</a></li>
+            <li><a href="/clothing.html">👕 Clothing</a></li>
+            <li><a href="/home-garden.html">🏠 Home & Garden</a></li>
+            <li><a href="/sports.html">⚽ Sports</a></li>
+            <li><a href="/all-categories.html">🔍 All Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="/contact.html">📞 Contact Us</a></li>
+            <li><a href="/faq.html">❓ FAQ</a></li>
+            <li><a href="/shipping.html">🚚 Shipping Info</a></li>
+            <li><a href="/returns.html">↩️ Returns</a></li>
+            <li><a href="/size-guide.html">📏 Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>About PolymerShop</h3>
+          <p>Your trusted online destination for quality products with fast shipping and excellent customer service.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Size guide content data
+    const sizeGuides = {
+      tops: {
+        title: 'Tops & Shirts',
+        description: 'Our tops and shirts are designed for a comfortable, flattering fit. All measurements are in inches and represent the garment measurements, not body measurements.',
+        tips: [
+          'Chest measurement is the most important for tops',
+          'Consider the fit preference (slim, regular, relaxed)',
+          'Check the fabric content for stretch and drape',
+          'When in doubt, size up for a more comfortable fit'
+        ],
+        chart: `
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Chest (inches)</th>
+                <th>Waist (inches)</th>
+                <th>Sleeve Length (inches)</th>
+                <th>Shoulder Width (inches)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>XS</strong></td><td>34-36</td><td>28-30</td><td>32-33</td><td>16-17</td></tr>
+              <tr><td><strong>S</strong></td><td>36-38</td><td>30-32</td><td>33-34</td><td>17-18</td></tr>
+              <tr><td><strong>M</strong></td><td>38-40</td><td>32-34</td><td>34-35</td><td>18-19</td></tr>
+              <tr><td><strong>L</strong></td><td>40-42</td><td>34-36</td><td>35-36</td><td>19-20</td></tr>
+              <tr><td><strong>XL</strong></td><td>42-44</td><td>36-38</td><td>36-37</td><td>20-21</td></tr>
+              <tr><td><strong>XXL</strong></td><td>44-46</td><td>38-40</td><td>37-38</td><td>21-22</td></tr>
+            </tbody>
+          </table>
+        `
+      },
+      bottoms: {
+        title: 'Bottoms & Pants',
+        description: 'Our bottoms offer comfortable fits with flexible waistbands. Measurements represent garment dimensions for the best fit.',
+        tips: [
+          'Waist measurement is crucial for bottoms',
+          'Consider the rise (low, mid, high) preference',
+          'Check inseam length for proper fit',
+          'Stretch fabrics provide more forgiveness in sizing'
+        ],
+        chart: `
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Waist (inches)</th>
+                <th>Hip (inches)</th>
+                <th>Inseam (inches)</th>
+                <th>Outseam (inches)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>XS</strong></td><td>28-30</td><td>34-36</td><td>30-31</td><td>40-41</td></tr>
+              <tr><td><strong>S</strong></td><td>30-32</td><td>36-38</td><td>31-32</td><td>41-42</td></tr>
+              <tr><td><strong>M</strong></td><td>32-34</td><td>38-40</td><td>32-33</td><td>42-43</td></tr>
+              <tr><td><strong>L</strong></td><td>34-36</td><td>40-42</td><td>33-34</td><td>43-44</td></tr>
+              <tr><td><strong>XL</strong></td><td>36-38</td><td>42-44</td><td>34-35</td><td>44-45</td></tr>
+              <tr><td><strong>XXL</strong></td><td>38-40</td><td>44-46</td><td>35-36</td><td>45-46</td></tr>
+            </tbody>
+          </table>
+        `
+      },
+      dresses: {
+        title: 'Dresses',
+        description: 'Our dresses are designed for flattering fits with comfortable stretch fabrics. Choose based on your body measurements.',
+        tips: [
+          'Bust and hip measurements are most important',
+          'Consider the dress length preference',
+          'Check fabric content for stretch and drape',
+          'Empire waist styles are more forgiving'
+        ],
+        chart: `
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>Bust (inches)</th>
+                <th>Waist (inches)</th>
+                <th>Hip (inches)</th>
+                <th>Length (inches)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>XS</strong></td><td>32-34</td><td>24-26</td><td>34-36</td><td>32-34</td></tr>
+              <tr><td><strong>S</strong></td><td>34-36</td><td>26-28</td><td>36-38</td><td>34-36</td></tr>
+              <tr><td><strong>M</strong></td><td>36-38</td><td>28-30</td><td>38-40</td><td>36-38</td></tr>
+              <tr><td><strong>L</strong></td><td>38-40</td><td>30-32</td><td>40-42</td><td>38-40</td></tr>
+              <tr><td><strong>XL</strong></td><td>40-42</td><td>32-34</td><td>42-44</td><td>40-42</td></tr>
+              <tr><td><strong>XXL</strong></td><td>42-44</td><td>34-36</td><td>44-46</td><td>42-44</td></tr>
+            </tbody>
+          </table>
+        `
+      },
+      shoes: {
+        title: 'Shoes',
+        description: 'Our footwear provides comfortable fits with proper arch support. All measurements are in US sizes.',
+        tips: [
+          'Measure both feet as they may differ slightly',
+          'Try shoes on with the socks you plan to wear',
+          'Allow 1/2 inch space at the end of your longest toe',
+          'Consider width if you have wide or narrow feet'
+        ],
+        chart: `
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>US Size</th>
+                <th>EU Size</th>
+                <th>UK Size</th>
+                <th>Foot Length (inches)</th>
+                <th>Foot Width (inches)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>6</strong></td><td>39</td><td>5</td><td>9.25</td><td>3.5</td></tr>
+              <tr><td><strong>7</strong></td><td>40</td><td>6</td><td>9.625</td><td>3.625</td></tr>
+              <tr><td><strong>8</strong></td><td>41</td><td>7</td><td>9.9375</td><td>3.75</td></tr>
+              <tr><td><strong>9</strong></td><td>42</td><td>8</td><td>10.25</td><td>3.875</td></tr>
+              <tr><td><strong>10</strong></td><td>43</td><td>9</td><td>10.5625</td><td>4</td></tr>
+              <tr><td><strong>11</strong></td><td>44</td><td>10</td><td>10.9375</td><td>4.125</td></tr>
+              <tr><td><strong>12</strong></td><td>45</td><td>11</td><td>11.25</td><td>4.25</td></tr>
+            </tbody>
+          </table>
+        `
+      },
+      accessories: {
+        title: 'Accessories',
+        description: 'Our accessories are designed with standard sizing for universal compatibility. Check product specifications for exact measurements.',
+        tips: [
+          'Ring sizes are measured in US sizing',
+          'Bracelet sizes are measured in inches',
+          'Necklace lengths vary by style preference',
+          'Watch bands are adjustable for most wrist sizes'
+        ],
+        chart: `
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Accessory Type</th>
+                <th>Standard Size</th>
+                <th>Measurement</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Rings</strong></td><td>6-8</td><td>2.04-2.22 inches</td><td>Most popular sizes</td></tr>
+              <tr><td><strong>Bracelets</strong></td><td>7-8 inches</td><td>7-8 inches</td><td>Adjustable clasps</td></tr>
+              <tr><td><strong>Necklaces</strong></td><td>16-18 inches</td><td>16-18 inches</td><td>Standard lengths</td></tr>
+              <tr><td><strong>Belts</strong></td><td>32-38 inches</td><td>32-38 inches</td><td>Waist measurement</td></tr>
+              <tr><td><strong>Hats</strong></td><td>7-7.5</td><td>22-23.5 inches</td><td>Head circumference</td></tr>
+            </tbody>
+          </table>
+        `
+      }
+    };
+
+    function showSizeGuide(category) {
+      // Update active button
+      document.querySelectorAll('.size-nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+
+      // Update content
+      const guide = sizeGuides[category];
+      const content = document.getElementById('size-guide-content');
+
+      content.innerHTML = `
+        <div class="size-info">
+          <h3>${guide.title}</h3>
+          <p>${guide.description}</p>
+
+          <div class="size-tips">
+            <h4>💡 Sizing Tips</h4>
+            <ul>
+              ${guide.tips.map(tip => `<li>${tip}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+
+        <div class="size-chart">
+          <h3>Size Chart - ${guide.title}</h3>
+          ${guide.chart}
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

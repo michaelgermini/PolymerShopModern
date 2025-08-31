@@ -1,0 +1,28 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1976D2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="96" cy="96" r="90" fill="url(#iconGradient)"/>
+  <circle cx="96" cy="96" r="85" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Shopping bag -->
+  <path d="M60 70 L60 110 L132 110 L132 70 L120 70 L116 60 L76 60 L72 70 Z"
+        fill="white" stroke="white" stroke-width="2"/>
+  <rect x="72" y="75" width="48" height="25" fill="none" stroke="white" stroke-width="2" rx="2"/>
+  <circle cx="84" cy="87.5" r="3" fill="white"/>
+  <circle cx="108" cy="87.5" r="3" fill="white"/>
+
+  <!-- Handle -->
+  <path d="M84 70 Q96 60 108 70" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Sparkles for modern feel -->
+  <circle cx="50" cy="50" r="2" fill="white" opacity="0.8"/>
+  <circle cx="142" cy="50" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="50" cy="142" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="142" cy="142" r="2" fill="white" opacity="0.8"/>
+</svg>

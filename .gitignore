@@ -81,7 +81,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist (temporarily commented out for Vercel deployment)
+# dist
 
 # Gatsby files
 .cache/
@@ -140,7 +141,8 @@ logs
 *.log
 
 # Build outputs
-dist/
+# dist/ (temporarily commented out for Vercel deployment)
+# dist/
 build/
 *.tsbuildinfo
 
@@ -171,3 +173,4 @@ coverage/
 tmp/
 temp/
 node_modules
+# dist (temporarily commented out for Vercel deployment)

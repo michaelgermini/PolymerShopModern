@@ -1,0 +1,102 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Ocean gradient background -->
+    <linearGradient id="ocean-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1929;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0f3057;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e5f74;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Wave pattern -->
+    <pattern id="waves" x="0" y="0" width="100" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0,10 Q25,0 50,10 T100,10 V20 H0 Z" fill="#2c7da0" opacity="0.4"/>
+    </pattern>
+
+    <!-- Bubble effect -->
+    <filter id="bubble">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#ocean-bg)"/>
+
+  <!-- Ocean waves -->
+  <rect x="0" y="350" width="800" height="250" fill="url(#waves)"/>
+  <rect x="0" y="370" width="800" height="230" fill="url(#waves)" opacity="0.6"/>
+  <rect x="0" y="390" width="800" height="210" fill="url(#waves)" opacity="0.4"/>
+  <rect x="0" y="410" width="800" height="190" fill="url(#waves)" opacity="0.3"/>
+
+  <!-- Sun reflection -->
+  <ellipse cx="400" cy="200" rx="150" ry="50" fill="#4dd0e1" opacity="0.2"/>
+  <ellipse cx="400" cy="200" rx="100" ry="30" fill="#2c7da0" opacity="0.3"/>
+  <ellipse cx="400" cy="200" rx="60" ry="15" fill="#4dd0e1" opacity="0.4"/>
+
+  <!-- Ocean waves on surface -->
+  <g transform="translate(0, 300)">
+    <path d="M0,20 Q100,0 200,20 T400,20 Q500,0 600,20 T800,20 V50 H0 Z" fill="#2c7da0" opacity="0.5"/>
+    <path d="M0,25 Q120,5 240,25 T480,25 Q600,5 720,25 T800,25 V45 H0 Z" fill="#4dd0e1" opacity="0.3"/>
+  </g>
+
+  <!-- Bubbles -->
+  <circle cx="150" cy="450" r="8" fill="#a8dadc" opacity="0.6" filter="url(#bubble)">
+    <animate attributeName="cy" values="450;400;450" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.3;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="480" r="5" fill="#4dd0e1" opacity="0.4" filter="url(#bubble)">
+    <animate attributeName="cy" values="480;430;480" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.2;0.4" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="420" r="6" fill="#2c7da0" opacity="0.5" filter="url(#bubble)">
+    <animate attributeName="cy" values="420;370;420" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="650" cy="460" r="4" fill="#a8dadc" opacity="0.5" filter="url(#bubble)">
+    <animate attributeName="cy" values="460;410;460" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.3;0.5" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Ocean life silhouettes -->
+  <!-- Fish -->
+  <g transform="translate(200, 400)">
+    <ellipse cx="0" cy="0" rx="15" ry="8" fill="#2c7da0" opacity="0.4"/>
+    <path d="M15,0 Q20,-5 15,-8 Q10,-5 15,0 Q20,5 15,8 Q10,5 15,0 Z" fill="#4dd0e1" opacity="0.5"/>
+    <circle cx="-8" cy="-3" r="1" fill="#a8dadc"/>
+  </g>
+
+  <!-- Jellyfish -->
+  <g transform="translate(600, 380)">
+    <ellipse cx="0" cy="0" rx="12" ry="20" fill="#a8dadc" opacity="0.3"/>
+    <path d="M-8,-15 Q-4,-20 0,-18 Q4,-20 8,-15" stroke="#4dd0e1" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M-6,-12 Q-2,-17 2,-15 Q6,-17 10,-12" stroke="#4dd0e1" stroke-width="2" fill="none" opacity="0.4"/>
+    <circle cx="0" cy="15" r="1" fill="#2c7da0" opacity="0.6"/>
+  </g>
+
+  <!-- Seaweed -->
+  <g transform="translate(100, 450)">
+    <path d="M0,50 Q10,30 5,10 Q15,0 10,-10 Q5,0 0,-5 Q-5,0 -10,-10 Q-15,0 -5,10 Q0,30 -5,50 Z" fill="#2c7da0" opacity="0.4"/>
+  </g>
+
+  <g transform="translate(700, 470)">
+    <path d="M0,40 Q8,25 3,8 Q12,0 8,-8 Q4,0 0,-4 Q-4,0 -8,-8 Q-12,0 -3,8 Q0,25 -4,40 Z" fill="#4dd0e1" opacity="0.3"/>
+  </g>
+
+  <!-- Ocean floor -->
+  <ellipse cx="200" cy="580" rx="180" ry="40" fill="#0f3057" opacity="0.6"/>
+  <ellipse cx="400" cy="590" rx="150" ry="30" fill="#0a1929" opacity="0.7"/>
+  <ellipse cx="600" cy="575" rx="120" ry="35" fill="#0f3057" opacity="0.5"/>
+
+  <!-- Ocean text -->
+  <text x="400" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#4dd0e1" opacity="0.4">OCEAN</text>
+  <text x="400" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#a8dadc" opacity="0.5">DEEP</text>
+
+  <!-- Floating particles -->
+  <circle cx="100" cy="150" r="1.5" fill="#4dd0e1" opacity="0.7"/>
+  <circle cx="300" cy="120" r="1" fill="#a8dadc" opacity="0.8"/>
+  <circle cx="500" cy="180" r="1.2" fill="#2c7da0" opacity="0.6"/>
+  <circle cx="700" cy="140" r="1.8" fill="#4dd0e1" opacity="0.5"/>
+</svg>

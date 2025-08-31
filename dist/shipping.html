@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Info - PolymerShop Modern</title>
+  <meta name="description" content="Learn about PolymerShop shipping options, delivery times, costs, and tracking information">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+      --ocean-deep: #0a1929;
+      --ocean-dark: #0f3057;
+      --ocean-primary: #1e5f74;
+      --ocean-secondary: #2c7da0;
+      --ocean-accent: #4dd0e1;
+      --ocean-light: #a8dadc;
+      --ocean-sand: #f1faee;
+      --ocean-white: #ffffff;
+      --text-primary: #f1faee;
+      --text-secondary: #a8dadc;
+      --text-muted: #6c7b95;
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .page-header {
+      background: var(--ocean-gradient-surface);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ocean-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0;
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link.active {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--ocean-accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .page-content {
+      min-height: 80vh;
+      padding: 2rem;
+    }
+
+    .content-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Shipping Options */
+    .shipping-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .shipping-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(77, 208, 225, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shipping-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--ocean-accent);
+    }
+
+    .shipping-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-ocean);
+      border-color: var(--ocean-accent);
+    }
+
+    .shipping-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .shipping-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .shipping-time {
+      font-size: 1.2rem;
+      color: var(--ocean-accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .shipping-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .shipping-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .free-badge {
+      background: var(--ocean-accent);
+      color: var(--ocean-deep);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+
+    /* Information Sections */
+    .info-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .info-section h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .info-section p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .info-section ul {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+    }
+
+    .info-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tracking Section */
+    .tracking-section {
+      background: rgba(77, 208, 225, 0.1);
+      border: 2px solid var(--ocean-accent);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .tracking-section h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .tracking-section p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .tracking-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--ocean-gradient-accent);
+      color: var(--ocean-deep);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .tracking-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      margin-top: 4rem;
+      border-top: 1px solid var(--ocean-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--ocean-gradient-accent);
+      z-index: 1;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ocean-accent);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(77, 208, 225, 0.2);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-content {
+        padding: 1rem;
+      }
+
+      .shipping-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .info-section {
+        padding: 1.5rem;
+      }
+
+      .tracking-section {
+        padding: 1.5rem;
+      }
+
+      .footer-content {
+        padding: 2rem 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <a href="/" class="header-logo">PolymerShop</a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/electronics.html" class="nav-link">Electronics</a>
+        <a href="/clothing.html" class="nav-link">Clothing</a>
+        <a href="/home-garden.html" class="nav-link">Home & Garden</a>
+        <a href="/sports.html" class="nav-link">Sports</a>
+        <a href="/all-categories.html" class="nav-link">All Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="content-container">
+      <h1 class="page-title">🚚 Shipping Information</h1>
+      <p class="page-subtitle">
+        Learn about our shipping options, delivery times, and how to track your orders.
+        We strive to get your packages to you as quickly and safely as possible.
+      </p>
+
+      <!-- Shipping Options -->
+      <div class="shipping-options">
+        <div class="shipping-card">
+          <span class="shipping-icon">📦</span>
+          <h3 class="shipping-name">Standard Shipping</h3>
+          <div class="shipping-time">3-5 Business Days</div>
+          <p class="shipping-description">
+            Reliable and cost-effective shipping option for most orders.
+            Perfect for non-urgent deliveries.
+          </p>
+          <div class="shipping-price">
+            Free on orders $75+<span class="free-badge">FREE</span>
+          </div>
+        </div>
+
+        <div class="shipping-card">
+          <span class="shipping-icon">⚡</span>
+          <h3 class="shipping-name">Express Shipping</h3>
+          <div class="shipping-time">1-2 Business Days</div>
+          <p class="shipping-description">
+            Faster delivery for urgent orders. Track your package
+            in real-time with our express service.
+          </p>
+          <div class="shipping-price">$14.99</div>
+        </div>
+
+        <div class="shipping-card">
+          <span class="shipping-icon">🚀</span>
+          <h3 class="shipping-name">Overnight Shipping</h3>
+          <div class="shipping-time">Next Business Day</div>
+          <p class="shipping-description">
+            Guaranteed next-business-day delivery for time-sensitive orders.
+            Available for select locations.
+          </p>
+          <div class="shipping-price">$29.99</div>
+        </div>
+      </div>
+
+      <!-- Important Information -->
+      <div class="info-section">
+        <h3>Shipping Restrictions & Information</h3>
+        <p>We currently ship to addresses within the continental United States. International shipping may be available for select items - please contact us for details.</p>
+
+        <p><strong>Shipping Cut-off Times:</strong></p>
+        <ul>
+          <li>Orders placed before 2 PM EST ship the same business day</li>
+          <li>Orders placed after 2 PM EST ship the next business day</li>
+          <li>Weekend orders ship on Monday</li>
+        </ul>
+
+        <p><strong>Holiday Shipping:</strong></p>
+        <ul>
+          <li>Holiday shipping deadlines are clearly marked during checkout</li>
+          <li>Express shipping may not be available during peak holiday seasons</li>
+          <li>Additional surcharges may apply for holiday rush delivery</li>
+        </ul>
+      </div>
+
+      <!-- Order Processing -->
+      <div class="info-section">
+        <h3>Order Processing Times</h3>
+        <p>Most orders are processed within 1-2 business days after payment is confirmed. Processing time includes:</p>
+        <ul>
+          <li>Order verification and payment processing</li>
+          <li>Inventory checking and quality control</li>
+          <li>Packaging and final preparation</li>
+        </ul>
+        <p>You will receive an email confirmation with tracking information once your order ships.</p>
+      </div>
+
+      <!-- Tracking Section -->
+      <div class="tracking-section">
+        <h3>Track Your Order</h3>
+        <p>Once your order ships, you'll receive a tracking number via email. Use our tracking system to monitor your package's journey.</p>
+        <a href="#tracking" class="tracking-button" onclick="alert('Tracking system would open here')">
+          Track My Order →
+        </a>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="info-section">
+        <h3>Additional Shipping Information</h3>
+        <p><strong>Signature Requirements:</strong> Packages over $500 require adult signature upon delivery.</p>
+        <p><strong>Address Changes:</strong> Contact us immediately if you need to change your shipping address.</p>
+        <p><strong>Delivery Attempts:</strong> Carriers make up to 3 delivery attempts before returning to sender.</p>
+        <p><strong>PO Boxes:</strong> We can ship to PO Boxes for most items, but some oversized items require physical addresses.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul class="footer-links">
+            <li><a href="/electronics.html">💻 Electronics</a></li>
+            <li><a href="/clothing.html">👕 Clothing</a></li>
+            <li><a href="/home-garden.html">🏠 Home & Garden</a></li>
+            <li><a href="/sports.html">⚽ Sports</a></li>
+            <li><a href="/all-categories.html">🔍 All Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="/contact.html">📞 Contact Us</a></li>
+            <li><a href="/faq.html">❓ FAQ</a></li>
+            <li><a href="/shipping.html">🚚 Shipping Info</a></li>
+            <li><a href="/returns.html">↩️ Returns</a></li>
+            <li><a href="/size-guide.html">📏 Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>About PolymerShop</h3>
+          <p>Your trusted online destination for quality products with fast shipping and excellent customer service.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

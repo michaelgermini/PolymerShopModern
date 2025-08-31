@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - PolymerShop Modern</title>
+  <meta name="description" content="Get in touch with PolymerShop customer service - we're here to help with your questions and orders">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+      --ocean-deep: #0a1929;
+      --ocean-dark: #0f3057;
+      --ocean-primary: #1e5f74;
+      --ocean-secondary: #2c7da0;
+      --ocean-accent: #4dd0e1;
+      --ocean-light: #a8dadc;
+      --ocean-sand: #f1faee;
+      --ocean-white: #ffffff;
+      --text-primary: #f1faee;
+      --text-secondary: #a8dadc;
+      --text-muted: #6c7b95;
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .page-header {
+      background: var(--ocean-gradient-surface);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ocean-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0;
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link.active {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--ocean-accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .page-content {
+      min-height: 80vh;
+      padding: 2rem;
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .contact-info {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 3rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .contact-info h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: rgba(77, 208, 225, 0.05);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .info-item:hover {
+      background: rgba(77, 208, 225, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .info-icon {
+      font-size: 2rem;
+      color: var(--ocean-accent);
+      min-width: 2rem;
+      text-align: center;
+    }
+
+    .info-content h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .info-content p {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 3rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .contact-form h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid rgba(77, 208, 225, 0.2);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--ocean-accent);
+      box-shadow: 0 0 0 3px rgba(77, 208, 225, 0.1);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--ocean-gradient-accent);
+      color: var(--ocean-deep);
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    /* FAQ Preview */
+    .faq-preview {
+      background: rgba(77, 208, 225, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .faq-preview h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .faq-preview p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--ocean-accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .faq-link:hover {
+      color: var(--ocean-light);
+      transform: translateX(5px);
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      margin-top: 4rem;
+      border-top: 1px solid var(--ocean-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--ocean-gradient-accent);
+      z-index: 1;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ocean-accent);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(77, 208, 225, 0.2);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-content {
+        padding: 1rem;
+      }
+
+      .contact-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 2rem;
+      }
+
+      .footer-content {
+        padding: 2rem 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <a href="/" class="header-logo">PolymerShop</a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/electronics.html" class="nav-link">Electronics</a>
+        <a href="/clothing.html" class="nav-link">Clothing</a>
+        <a href="/home-garden.html" class="nav-link">Home & Garden</a>
+        <a href="/sports.html" class="nav-link">Sports</a>
+        <a href="/all-categories.html" class="nav-link">All Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="content-container">
+      <h1 class="page-title">📞 Contact Us</h1>
+      <p class="page-subtitle">
+        We're here to help! Get in touch with our customer service team for any questions,
+        concerns, or assistance with your orders.
+      </p>
+
+      <!-- Contact Section -->
+      <div class="contact-section">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+
+          <div class="info-item">
+            <span class="info-icon">📧</span>
+            <div class="info-content">
+              <h3>Email Support</h3>
+              <p>support@polymershop.com<br>Response within 24 hours</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📞</span>
+            <div class="info-content">
+              <h3>Phone Support</h3>
+              <p>1-800-POLYMER<br>Mon-Fri: 9AM-6PM EST</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">💬</span>
+            <div class="info-content">
+              <h3>Live Chat</h3>
+              <p>Available 24/7<br>Instant responses</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div class="info-content">
+              <h3>Office Address</h3>
+              <p>123 Ocean Drive<br>Tech City, TC 12345</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2>Send us a Message</h2>
+
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="order">Order Inquiry</option>
+                <option value="shipping">Shipping Question</option>
+                <option value="returns">Returns & Exchanges</option>
+                <option value="product">Product Information</option>
+                <option value="technical">Technical Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="orderNumber">Order Number (if applicable)</label>
+              <input type="text" id="orderNumber" name="orderNumber" placeholder="Leave blank if not applicable">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- FAQ Preview -->
+      <div class="faq-preview">
+        <h3>Looking for quick answers?</h3>
+        <p>Check out our comprehensive FAQ section for instant answers to common questions.</p>
+        <a href="/faq.html" class="faq-link">Visit FAQ Page →</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul class="footer-links">
+            <li><a href="/electronics.html">💻 Electronics</a></li>
+            <li><a href="/clothing.html">👕 Clothing</a></li>
+            <li><a href="/home-garden.html">🏠 Home & Garden</a></li>
+            <li><a href="/sports.html">⚽ Sports</a></li>
+            <li><a href="/all-categories.html">🔍 All Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="/contact.html">📞 Contact Us</a></li>
+            <li><a href="/faq.html">❓ FAQ</a></li>
+            <li><a href="/shipping.html">🚚 Shipping Info</a></li>
+            <li><a href="/returns.html">↩️ Returns</a></li>
+            <li><a href="/size-guide.html">📏 Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>About PolymerShop</h3>
+          <p>Your trusted online destination for quality products with fast shipping and excellent customer service.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Show success message (in a real implementation, you'd send the form data to a server)
+      alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+
+      // Reset form
+      this.reset();
+    });
+  </script>
+</body>
+</html>

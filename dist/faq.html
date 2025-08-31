@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - PolymerShop Modern</title>
+  <meta name="description" content="Frequently asked questions about PolymerShop - orders, shipping, returns, and more">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+      --ocean-deep: #0a1929;
+      --ocean-dark: #0f3057;
+      --ocean-primary: #1e5f74;
+      --ocean-secondary: #2c7da0;
+      --ocean-accent: #4dd0e1;
+      --ocean-light: #a8dadc;
+      --ocean-sand: #f1faee;
+      --ocean-white: #ffffff;
+      --text-primary: #f1faee;
+      --text-secondary: #a8dadc;
+      --text-muted: #6c7b95;
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .page-header {
+      background: var(--ocean-gradient-surface);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ocean-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0;
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link.active {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--ocean-accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .page-content {
+      min-height: 80vh;
+      padding: 2rem;
+    }
+
+    .content-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FAQ Categories */
+    .faq-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      justify-content: center;
+    }
+
+    .category-btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(77, 208, 225, 0.2);
+      border-radius: 25px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--ocean-accent);
+      border-color: var(--ocean-accent);
+      color: var(--ocean-deep);
+      transform: translateY(-2px);
+    }
+
+    /* FAQ Items */
+    .faq-section {
+      margin-bottom: 3rem;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(77, 208, 225, 0.2);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem;
+      background: none;
+      border: none;
+      text-align: left;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(77, 208, 225, 0.05);
+    }
+
+    .faq-toggle {
+      font-size: 1.5rem;
+      color: var(--ocean-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 1.5rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: rgba(77, 208, 225, 0.1);
+      border: 2px solid var(--ocean-accent);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .contact-cta h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .contact-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: var(--ocean-gradient-accent);
+      color: var(--ocean-deep);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      margin-top: 4rem;
+      border-top: 1px solid var(--ocean-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--ocean-gradient-accent);
+      z-index: 1;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ocean-accent);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(77, 208, 225, 0.2);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-content {
+        padding: 1rem;
+      }
+
+      .faq-categories {
+        gap: 0.5rem;
+      }
+
+      .category-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-cta {
+        padding: 2rem 1rem;
+      }
+
+      .footer-content {
+        padding: 2rem 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <a href="/" class="header-logo">PolymerShop</a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/electronics.html" class="nav-link">Electronics</a>
+        <a href="/clothing.html" class="nav-link">Clothing</a>
+        <a href="/home-garden.html" class="nav-link">Home & Garden</a>
+        <a href="/sports.html" class="nav-link">Sports</a>
+        <a href="/all-categories.html" class="nav-link">All Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="content-container">
+      <h1 class="page-title">❓ Frequently Asked Questions</h1>
+      <p class="page-subtitle">
+        Find quick answers to the most common questions about shopping at PolymerShop.
+        Can't find what you're looking for? Contact our support team.
+      </p>
+
+      <!-- FAQ Categories -->
+      <div class="faq-categories">
+        <button class="category-btn active" onclick="filterFAQ('all')">All Questions</button>
+        <button class="category-btn" onclick="filterFAQ('orders')">Orders</button>
+        <button class="category-btn" onclick="filterFAQ('shipping')">Shipping</button>
+        <button class="category-btn" onclick="filterFAQ('returns')">Returns</button>
+        <button class="category-btn" onclick="filterFAQ('products')">Products</button>
+      </div>
+
+      <!-- FAQ Sections -->
+      <div class="faq-section" data-category="orders">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How do I place an order?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>To place an order, simply browse our products, add items to your cart, and proceed to checkout. You'll need to provide shipping information and payment details. All orders are processed securely.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            Can I modify my order after placing it?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Orders can be modified within 1 hour of placement. Please contact our customer service team immediately with your order number. Once an order has been processed for shipping, modifications may not be possible.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section" data-category="shipping">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How long does shipping take?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Standard shipping takes 3-5 business days within the continental US. Express shipping (1-2 business days) and overnight shipping are also available. International shipping times vary by location.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            Do you offer free shipping?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! We offer free standard shipping on orders over $75 within the continental US. Express and overnight shipping have additional charges based on weight and distance.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section" data-category="returns">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            What is your return policy?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We offer a 30-day return policy for most items. Items must be in original condition with tags attached. Some items like personalized products or final sale items are not eligible for return.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How do I return an item?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Contact our customer service team to initiate a return. We'll provide a return shipping label and instructions. Once we receive your return, we'll process your refund within 3-5 business days.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section" data-category="products">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            Are your products authentic?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, all our products are 100% authentic and sourced directly from authorized manufacturers and distributors. We guarantee the authenticity of every item we sell.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            Do you offer warranties?
+            <span class="faq-toggle">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Most of our products come with manufacturer warranties. Electronics typically have 1-year warranties, while other products may have different warranty periods. Warranty information is listed on each product page.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="contact-cta">
+        <h3>Still have questions?</h3>
+        <p>Our customer service team is here to help! Contact us for personalized assistance.</p>
+        <a href="/contact.html" class="cta-button">
+          Contact Support →
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul class="footer-links">
+            <li><a href="/electronics.html">💻 Electronics</a></li>
+            <li><a href="/clothing.html">👕 Clothing</a></li>
+            <li><a href="/home-garden.html">🏠 Home & Garden</a></li>
+            <li><a href="/sports.html">⚽ Sports</a></li>
+            <li><a href="/all-categories.html">🔍 All Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="/contact.html">📞 Contact Us</a></li>
+            <li><a href="/faq.html">❓ FAQ</a></li>
+            <li><a href="/shipping.html">🚚 Shipping Info</a></li>
+            <li><a href="/returns.html">↩️ Returns</a></li>
+            <li><a href="/size-guide.html">📏 Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>About PolymerShop</h3>
+          <p>Your trusted online destination for quality products with fast shipping and excellent customer service.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle FAQ answers
+    function toggleFAQ(button) {
+      const faqItem = button.parentElement;
+      faqItem.classList.toggle('active');
+    }
+
+    // Filter FAQ by category
+    function filterFAQ(category) {
+      // Update active button
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+
+      // Filter FAQ items
+      const faqSections = document.querySelectorAll('.faq-section');
+
+      if (category === 'all') {
+        faqSections.forEach(section => {
+          section.style.display = 'block';
+        });
+      } else {
+        faqSections.forEach(section => {
+          if (section.dataset.category === category) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>

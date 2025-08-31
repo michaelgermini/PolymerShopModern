@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PolymerShop Modern - Advanced E-commerce</title>
+  <meta name="description" content="Modern e-commerce shopping experience with advanced animations, PWA features, and responsive design">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+  
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="PolymerShop">
+  <link rel="apple-touch-icon" href="/images/polymershop-icon.svg">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:title" content="PolymerShop Modern">
+  <meta property="og:description" content="Modern e-commerce shopping experience">
+  <meta property="og:image" content="/images/polymershop-icon.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="/">
+  <meta property="twitter:title" content="PolymerShop Modern">
+  <meta property="twitter:description" content="Modern e-commerce shopping experience">
+  <meta property="twitter:image" content="/images/polymershop-icon.svg">
+  
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+
+      /* Primary oceanic colors */
+      --ocean-deep: #0a1929;        /* Very dark navy blue - deep sea */
+      --ocean-dark: #0f3057;        /* Dark navy blue - depths */
+      --ocean-primary: #1e5f74;     /* Ocean blue-green - surface */
+      --ocean-secondary: #2c7da0;   /* Sky blue - reflected sky */
+      --ocean-accent: #4dd0e1;      /* Light turquoise - reflections */
+      --ocean-light: #a8dadc;       /* Pale blue-green - foam */
+      --ocean-sand: #f1faee;        /* Off-white - sand */
+      --ocean-white: #ffffff;       /* Pure white - waves */
+
+      /* Oceanic gradients */
+      --ocean-gradient-primary: linear-gradient(135deg, #1e5f74 0%, #2c7da0 50%, #4dd0e1 100%);
+      --ocean-gradient-secondary: linear-gradient(135deg, #0f3057 0%, #1e5f74 100%);
+      --ocean-gradient-accent: linear-gradient(45deg, #4dd0e1, #2c7da0);
+      --ocean-gradient-surface: linear-gradient(135deg, #0a1929 0%, #0f3057 100%);
+
+      /* Oceanic text colors */
+      --text-primary: #f1faee;       /* Off-white for primary text */
+      --text-secondary: #a8dadc;     /* Pale blue-green for secondary text */
+      --text-muted: #6c7b95;         /* Blue-grey for muted text */
+      --text-accent: #4dd0e1;        /* Turquoise for accents */
+
+      /* Oceanic shadows */
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+      --shadow-ocean-strong: 0 12px 40px rgba(14, 48, 87, 0.4);
+
+      /* Material Design Colors - Ocean Theme */
+      --md-sys-color-primary: #1e5f74;           /* Ocean blue-green */
+      --md-sys-color-on-primary: #f1faee;       /* Off-white */
+      --md-sys-color-primary-container: #a8dadc; /* Pale blue-green */
+      --md-sys-color-on-primary-container: #001f2a;
+
+      --md-sys-color-secondary: #2c7da0;        /* Sky blue */
+      --md-sys-color-on-secondary: #f1faee;     /* Off-white */
+      --md-sys-color-secondary-container: #4dd0e1; /* Turquoise */
+      --md-sys-color-on-secondary-container: #001f2a;
+
+      --md-sys-color-surface: #0f3057;          /* Dark navy blue */
+      --md-sys-color-on-surface: #f1faee;       /* Off-white */
+      --md-sys-color-surface-variant: #1e5f74;   /* Ocean blue-green */
+      --md-sys-color-on-surface-variant: #a8dadc; /* Pale blue-green */
+
+      --md-sys-color-outline: #2c7da0;          /* Sky blue */
+      --md-sys-color-outline-variant: #4dd0e1;   /* Turquoise */
+
+      /* Oceanic interactive states */
+      --hover-ocean: rgba(77, 208, 225, 0.1);
+      --active-ocean: rgba(77, 208, 225, 0.2);
+      --focus-ocean: rgba(77, 208, 225, 0.3);
+      --md-sys-color-error: #ba1a1a;
+      --md-sys-color-on-error: #ffffff;
+      --md-sys-color-error-container: #ffdad6;
+      --md-sys-color-on-error-container: #410002;
+    }
+
+    [color-scheme="dark"] {
+      --md-sys-color-primary: #bbe1fa;
+      --md-sys-color-on-primary: #001b2e;
+      --md-sys-color-primary-container: #0f4c75;
+      --md-sys-color-on-primary-container: #bbe1fa;
+      --md-sys-color-secondary: #90caf9;
+      --md-sys-color-on-secondary: #001f2a;
+      --md-sys-color-secondary-container: #1e3a5f;
+      --md-sys-color-on-secondary-container: #d1ecf4;
+      --md-sys-color-surface: #0e1419;
+      --md-sys-color-on-surface: #e1e3e5;
+      --md-sys-color-surface-variant: #3e484d;
+      --md-sys-color-on-surface-variant: #bfc8cc;
+      --md-sys-color-outline: #899297;
+      --md-sys-color-outline-variant: #3e484d;
+      --md-sys-color-error: #ffb4ab;
+      --md-sys-color-on-error: #690005;
+      --md-sys-color-error-container: #93000a;
+      --md-sys-color-on-error-container: #ffdad6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 1.2rem;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--md-sys-color-outline-variant);
+      border-top: 4px solid var(--md-sys-color-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 16px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .loading {
+        font-size: 1rem;
+      }
+      
+      .spinner {
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-CCZVKuni.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/services-B6m9dzjf.js">
+</head>
+<body>
+  <div id="app" role="application" aria-label="PolymerShop E-commerce Application">
+    <!-- L'application Lit sera injectée ici -->
+  </div>
+
+  <!-- PolymerShop Fallback Application (Vanilla JS) -->
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('✅ Service Worker registered successfully:', registration.scope);
+
+            // Check for updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // New version available
+                    if (confirm('🚀 New version available! Reload to update?')) {
+                      window.location.reload();
+                    }
+                  }
+                });
+              }
+            });
+
+            // Handle messages from service worker
+            navigator.serviceWorker.addEventListener('message', (event) => {
+              if (event.data && event.data.type === 'CACHE_SIZE') {
+                console.log('💾 Cache size:', event.data.size);
+              }
+            });
+          })
+          .catch((error) => {
+            console.error('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+
+    // PWA install prompt
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later
+      deferredPrompt = e;
+
+      // Show install button
+      showInstallButton();
+    });
+
+    function showInstallButton() {
+      const installButton = document.createElement('button');
+      installButton.id = 'pwa-install-btn';
+      installButton.innerHTML = '📱 Install App';
+      installButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #2196f3, #1976d2);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 4px 20px rgba(33, 150, 243, 0.4);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      `;
+
+      installButton.onclick = async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+
+          if (outcome === 'accepted') {
+            console.log('✅ User accepted the install prompt');
+          } else {
+            console.log('❌ User dismissed the install prompt');
+          }
+
+          deferredPrompt = null;
+          installButton.remove();
+        }
+      };
+
+      document.body.appendChild(installButton);
+
+      // Auto-hide after 10 seconds
+      setTimeout(() => {
+        if (installButton.parentNode) {
+          installButton.remove();
+        }
+      }, 10000);
+    }
+
+    // Handle app installed
+    window.addEventListener('appinstalled', (e) => {
+      console.log('🎉 PWA was installed');
+      // Hide install button if it exists
+      const installBtn = document.getElementById('pwa-install-btn');
+      if (installBtn) {
+        installBtn.remove();
+      }
+    });
+
+    // Check if app is already installed
+    if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+      console.log('📱 App is running in standalone mode (PWA)');
+    }
+
+    // Network status detection
+    let isOnline = navigator.onLine;
+    function updateOnlineStatus() {
+      const wasOnline = isOnline;
+      isOnline = navigator.onLine;
+
+      if (isOnline !== wasOnline) {
+        if (isOnline) {
+          console.log('🌐 Back online');
+          // Show success notification
+          showNetworkNotification('✅ Back online!', 'success');
+        } else {
+          console.log('📴 Gone offline');
+          // Show warning notification
+          showNetworkNotification('📴 You are offline', 'warning');
+        }
+      }
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+
+    function showNetworkNotification(message, type) {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: ${type === 'success' ? '#4caf50' : '#ff9800'};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 1000;
+        font-weight: 500;
+        animation: slideInFromLeft 0.4s ease-out;
+      `;
+      notification.textContent = message;
+
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.style.animation = 'slideOutToLeft 0.3s ease-in';
+          setTimeout(() => notification.remove(), 300);
+        }
+      }, 3000);
+    }
+
+    // Add network notification styles
+    const networkStyles = document.createElement('style');
+    networkStyles.textContent = `
+      @keyframes slideInFromLeft {
+        from { transform: translateX(-100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+
+      @keyframes slideOutToLeft {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(-100%); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(networkStyles);
+
+    // Performance monitoring
+    if ('performance' in window && 'PerformanceObserver' in window) {
+      // Monitor Core Web Vitals
+      try {
+        const observer = new PerformanceObserver((list) => {
+          for (const entry of list.getEntries()) {
+            if (entry.entryType === 'measure') {
+              console.log('📊 Performance:', entry.name, entry.duration + 'ms');
+            }
+          }
+        });
+        observer.observe({ entryTypes: ['measure'] });
+      } catch (e) {
+        console.log('⚠️ Performance monitoring not fully supported');
+      }
+    }
+
+    // Mark performance
+    window.addEventListener('load', () => {
+      if ('performance' in window && 'mark' in performance) {
+        performance.mark('app-loaded');
+        console.log('🚀 App loaded successfully');
+      }
+    });
+  </script>
+
+  <!-- Site Links Section -->
+  <section class="site-links-section">
+    <div class="container">
+      <h2 class="section-title">🌐 Explore PolymerShop</h2>
+      <p class="section-subtitle">Navigate through our complete collection of products and services</p>
+
+      <div class="links-grid">
+        <!-- Categories Section -->
+        <div class="links-category">
+          <h3 class="category-title">📂 Product Categories</h3>
+          <div class="category-links">
+            <a href="/electronics.html" class="link-card">
+              <span class="link-icon">💻</span>
+              <div class="link-content">
+                <h4>Electronics</h4>
+                <p>Latest technology and gadgets</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/clothing.html" class="link-card">
+              <span class="link-icon">👕</span>
+              <div class="link-content">
+                <h4>Clothing</h4>
+                <p>Fashion and apparel collection</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/home-garden.html" class="link-card">
+              <span class="link-icon">🏠</span>
+              <div class="link-content">
+                <h4>Home & Garden</h4>
+                <p>Home decor and gardening</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/sports.html" class="link-card">
+              <span class="link-icon">⚽</span>
+              <div class="link-content">
+                <h4>Sports</h4>
+                <p>Athletic equipment and gear</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/all-categories.html" class="link-card">
+              <span class="link-icon">🔍</span>
+              <div class="link-content">
+                <h4>All Categories</h4>
+                <p>Browse all product categories</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Customer Service Section -->
+        <div class="links-category">
+          <h3 class="category-title">🛍️ Customer Service</h3>
+          <div class="category-links">
+            <a href="/contact.html" class="link-card">
+              <span class="link-icon">📞</span>
+              <div class="link-content">
+                <h4>Contact Us</h4>
+                <p>Get in touch with our team</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/faq.html" class="link-card">
+              <span class="link-icon">❓</span>
+              <div class="link-content">
+                <h4>FAQ</h4>
+                <p>Frequently asked questions</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/shipping.html" class="link-card">
+              <span class="link-icon">🚚</span>
+              <div class="link-content">
+                <h4>Shipping Info</h4>
+                <p>Delivery options and tracking</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/returns.html" class="link-card">
+              <span class="link-icon">↩️</span>
+              <div class="link-content">
+                <h4>Returns</h4>
+                <p>Easy return and exchange policy</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+
+            <a href="/size-guide.html" class="link-card">
+              <span class="link-icon">📏</span>
+              <div class="link-content">
+                <h4>Size Guide</h4>
+                <p>Fitting guide and measurements</p>
+              </div>
+              <span class="link-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .site-links-section {
+      padding: 4rem 0;
+      background: var(--ocean-gradient-surface);
+      border-top: 1px solid var(--ocean-primary);
+      margin-top: 4rem;
+    }
+
+    .site-links-section .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
+    }
+
+    .links-category {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .category-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(77, 208, 225, 0.05);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .link-card:hover {
+      background: rgba(77, 208, 225, 0.1);
+      border-color: var(--ocean-accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    .link-icon {
+      font-size: 1.5rem;
+      min-width: 1.5rem;
+      text-align: center;
+    }
+
+    .link-content {
+      flex: 1;
+    }
+
+    .link-content h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--text-primary);
+    }
+
+    .link-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    .link-arrow {
+      font-size: 1.2rem;
+      color: var(--ocean-accent);
+      transition: transform 0.3s ease;
+    }
+
+    .link-card:hover .link-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .site-links-section {
+        padding: 2rem 0;
+        margin-top: 2rem;
+      }
+
+      .site-links-section .container {
+        padding: 0 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .links-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .links-category {
+        padding: 1.5rem;
+      }
+
+      .link-card {
+        padding: 0.75rem;
+      }
+    }
+  </style>
+</body>
+</html>

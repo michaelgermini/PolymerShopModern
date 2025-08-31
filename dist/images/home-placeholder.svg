@@ -1,0 +1,19 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="home" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E65100;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#home)"/>
+  <!-- House shape -->
+  <polygon points="150,180 200,120 250,180" fill="rgba(255,255,255,0.2)"/>
+  <rect x="160" y="180" width="80" height="60" fill="rgba(255,255,255,0.2)"/>
+  <rect x="175" y="195" width="20" height="15" fill="rgba(255,255,255,0.3)"/>
+  <rect x="205" y="195" width="20" height="15" fill="rgba(255,255,255,0.3)"/>
+  <!-- Door -->
+  <rect x="190" y="210" width="20" height="30" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="195" cy="225" r="2" fill="#ffffff"/>
+  <text x="200" y="250" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">HOME</text>
+  <text x="200" y="270" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="12">Furniture & Decor</text>
+</svg>

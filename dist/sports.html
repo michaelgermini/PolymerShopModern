@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports - PolymerShop Modern</title>
+  <meta name="description" content="Gear up for victory with our premium sports equipment, fitness gear, and athletic apparel">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+      --ocean-deep: #0a1929;
+      --ocean-dark: #0f3057;
+      --ocean-primary: #1e5f74;
+      --ocean-secondary: #2c7da0;
+      --ocean-accent: #4dd0e1;
+      --ocean-light: #a8dadc;
+      --ocean-sand: #f1faee;
+      --ocean-white: #ffffff;
+      --text-primary: #f1faee;
+      --text-secondary: #a8dadc;
+      --text-muted: #6c7b95;
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .page-header {
+      background: var(--ocean-gradient-surface);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--ocean-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0;
+      box-shadow: var(--shadow-ocean-light);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link.active {
+      color: var(--ocean-accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--ocean-accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .page-content {
+      min-height: 80vh;
+      padding: 2rem;
+    }
+
+    .content-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--ocean-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(77, 208, 225, 0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-ocean);
+      border-color: var(--ocean-accent);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: var(--ocean-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--ocean-accent);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .product-description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .product-price {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ocean-accent);
+    }
+
+    /* Features Section */
+    .features-section {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(77, 208, 225, 0.2);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(77, 208, 225, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      background: rgba(77, 208, 225, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .feature-description {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .page-footer {
+      background: var(--ocean-gradient-surface);
+      color: var(--text-primary);
+      margin-top: 4rem;
+      border-top: 1px solid var(--ocean-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--ocean-gradient-accent);
+      z-index: 1;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--ocean-accent);
+      transform: translateX(5px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(77, 208, 225, 0.2);
+      padding: 1.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-content {
+        padding: 1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        padding: 2rem 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="page-header">
+    <div class="header-content">
+      <a href="/" class="header-logo">PolymerShop</a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/electronics.html" class="nav-link">Electronics</a>
+        <a href="/clothing.html" class="nav-link">Clothing</a>
+        <a href="/home-garden.html" class="nav-link">Home & Garden</a>
+        <a href="/sports.html" class="nav-link active">Sports</a>
+        <a href="/all-categories.html" class="nav-link">All Categories</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page-content">
+    <div class="content-container">
+      <h1 class="page-title">⚽ Sports</h1>
+      <p class="page-subtitle">
+        Gear up for victory with our premium sports equipment, fitness gear, and athletic apparel.
+        From professional training to casual recreation, we've got you covered.
+      </p>
+
+      <!-- Products Grid -->
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">⚽</div>
+          <div class="product-info">
+            <h3 class="product-name">Professional Soccer Ball</h3>
+            <p class="product-description">
+              FIFA-approved soccer ball with superior grip and performance for professional play.
+            </p>
+            <div class="product-price">$49.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🏃‍♂️</div>
+          <div class="product-info">
+            <h3 class="product-name">Running Shoes Pro</h3>
+            <p class="product-description">
+              Advanced running shoes with cushioning technology and breathable materials.
+            </p>
+            <div class="product-price">$149.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🏋️‍♂️</div>
+          <div class="product-info">
+            <h3 class="product-name">Weight Training Set</h3>
+            <p class="product-description">
+              Complete home gym weight training set with dumbbells and resistance bands.
+            </p>
+            <div class="product-price">$299.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🎾</div>
+          <div class="product-info">
+            <h3 class="product-name">Tennis Racket Pro</h3>
+            <p class="product-description">
+              Professional grade tennis racket with carbon fiber construction and precision balance.
+            </p>
+            <div class="product-price">$199.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🏊‍♂️</div>
+          <div class="product-info">
+            <h3 class="product-name">Swim Gear Package</h3>
+            <p class="product-description">
+              Complete swimming package with goggles, cap, and training fins for optimal performance.
+            </p>
+            <div class="product-price">$79.99</div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🏀</div>
+          <div class="product-info">
+            <h3 class="product-name">Basketball Premium</h3>
+            <p class="product-description">
+              Official size basketball with composite leather and superior grip for indoor/outdoor play.
+            </p>
+            <div class="product-price">$89.99</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🏆</span>
+            <h3 class="feature-title">Professional Grade</h3>
+            <p class="feature-description">
+              Equipment designed for athletes who demand the highest performance standards.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">💪</span>
+            <h3 class="feature-title">Fitness Focused</h3>
+            <p class="feature-description">
+              Complete fitness solutions for strength training, cardio, and recovery.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <h3 class="feature-title">Performance Tech</h3>
+            <p class="feature-description">
+              Cutting-edge technology and materials for optimal athletic performance.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">🌟</span>
+            <h3 class="feature-title">Team Sports</h3>
+            <p class="feature-description">
+              Complete equipment packages for team sports and group activities.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Categories</h3>
+          <ul class="footer-links">
+            <li><a href="/electronics.html">💻 Electronics</a></li>
+            <li><a href="/clothing.html">👕 Clothing</a></li>
+            <li><a href="/home-garden.html">🏠 Home & Garden</a></li>
+            <li><a href="/sports.html">⚽ Sports</a></li>
+            <li><a href="/all-categories.html">🔍 All Categories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul class="footer-links">
+            <li><a href="/contact.html">📞 Contact Us</a></li>
+            <li><a href="/faq.html">❓ FAQ</a></li>
+            <li><a href="/shipping.html">🚚 Shipping Info</a></li>
+            <li><a href="/returns.html">↩️ Returns</a></li>
+            <li><a href="/size-guide.html">📏 Size Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>About PolymerShop</h3>
+          <p>Your trusted online destination for quality products with fast shipping and excellent customer service.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "PolymerShop Modern",
+  "short_name": "PolymerShop",
+  "description": "Modern e-commerce shopping experience with advanced features",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f4c75",
+  "theme_color": "#2196f3",
+  "orientation": "portrait-primary",
+  "categories": ["shopping", "lifestyle", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/polymershop-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Products",
+      "short_name": "Products",
+      "description": "Browse all available products",
+      "url": "/#catalog",
+      "icons": [{ "src": "/images/polymershop-icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Shopping Cart",
+      "short_name": "Cart",
+      "description": "View your shopping cart",
+      "url": "/#cart",
+      "icons": [{ "src": "/images/polymershop-icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Favorites",
+      "short_name": "Favorites",
+      "description": "View your favorite products",
+      "url": "/#favorites",
+      "icons": [{ "src": "/images/polymershop-icon.svg", "sizes": "any" }]
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}
