@@ -48,7 +48,7 @@
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/polymershop-modern.git
+git clone https://github.com/michaelgermini/PolymerShopModern.git
 cd polymershop-modern
 
 # Installer les dépendances
@@ -226,9 +226,9 @@ Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
 ## 📞 Support
 
 - 📧 **Email**: contact@polymershop.dev
-- 🐛 **Issues**: [GitHub Issues](https://github.com/votre-username/polymershop-modern/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/votre-username/polymershop-modern/discussions)
-- 📖 **Documentation**: [Wiki](https://github.com/votre-username/polymershop-modern/wiki)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/michaelgermini/PolymerShopModern/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/michaelgermini/PolymerShopModern/discussions)
+- 📖 **Documentation**: [Wiki](https://github.com/michaelgermini/PolymerShopModern/wiki)
 
 ## 🔄 Roadmap
 
@@ -250,12 +250,12 @@ Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
 
 <div align="center">
 
-**Fait avec ❤️ par [Votre Nom](https://github.com/votre-username)**
+**Fait avec ❤️ par [Michael Germini](https://github.com/michaelgermini)**
 
 ⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile !
 
-[🚀 Démo en ligne](https://votre-username.github.io/polymershop-modern/) •
-[📖 Documentation](https://github.com/votre-username/polymershop-modern/wiki) •
-[🐛 Signaler un bug](https://github.com/votre-username/polymershop-modern/issues)
+[🚀 Démo en ligne](https://michaelgermini.github.io/PolymerShopModern/) •
+[📖 Documentation](https://github.com/michaelgermini/PolymerShopModern/wiki) •
+[🐛 Signaler un bug](https://github.com/michaelgermini/PolymerShopModern/issues)
 
 </div>

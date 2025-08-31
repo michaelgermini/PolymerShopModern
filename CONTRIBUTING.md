@@ -27,13 +27,13 @@ Ce projet suit un code de conduite pour assurer un environnement accueillant pou
 ### Types de Contributions
 
 #### 🐛 **Rapports de Bugs**
-- Utilisez le template de bug dans [Issues](https://github.com/votre-username/polymershop-modern/issues/new?template=bug_report.md)
+- Utilisez le template de bug dans [Issues](https://github.com/michaelgermini/PolymerShopModern/issues/new?template=bug_report.md)
 - Incluez les étapes pour reproduire
 - Ajoutez captures d'écran si pertinent
 - Spécifiez votre environnement (OS, navigateur, version)
 
 #### 💡 **Fonctionnalités**
-- Vérifiez les [Issues](https://github.com/votre-username/polymershop-modern/issues) existantes
+- Vérifiez les [Issues](https://github.com/michaelgermini/PolymerShopModern/issues) existantes
 - Utilisez le template de fonctionnalité
 - Décrivez le problème résolu
 - Proposez une solution détaillée
@@ -61,7 +61,7 @@ Ce projet suit un code de conduite pour assurer un environnement accueillant pou
 
 ```bash
 # Cloner le repository
-git clone https://github.com/votre-username/polymershop-modern.git
+git clone https://github.com/michaelgermini/PolymerShopModern.git
 cd polymershop-modern
 
 # Installer les dépendances
@@ -396,11 +396,11 @@ npm run audit:acc    # Accessibilité
 ### Où Obtenir de l'Aide
 
 #### Questions Générales
-- [GitHub Discussions](https://github.com/votre-username/polymershop-modern/discussions)
-- [Documentation Wiki](https://github.com/votre-username/polymershop-modern/wiki)
+- [GitHub Discussions](https://github.com/michaelgermini/PolymerShopModern/discussions)
+- [Documentation Wiki](https://github.com/michaelgermini/PolymerShopModern/wiki)
 
 #### Bugs et Issues
-- [GitHub Issues](https://github.com/votre-username/polymershop-modern/issues)
+- [GitHub Issues](https://github.com/michaelgermini/PolymerShopModern/issues)
 - Fournir un exemple minimal reproductible
 
 #### Contributions
@@ -452,6 +452,6 @@ Merci de contribuer à PolymerShop Modern ! 🎉
 
 <div align="center">
 
-**Questions ?** [Ouvrir une discussion](https://github.com/votre-username/polymershop-modern/discussions)
+**Questions ?** [Ouvrir une discussion](https://github.com/michaelgermini/PolymerShopModern/discussions)
 
 </div>

@@ -4,13 +4,13 @@
   "description": "A modern e-commerce application built with Lit, Web Components, and Material Design 3",
   "type": "module",
   "main": "index.html",
-  "homepage": "https://votre-username.github.io/polymershop-modern",
+  "homepage": "https://michaelgermini.github.io/PolymerShopModern",
   "repository": {
     "type": "git",
-    "url": "https://github.com/votre-username/polymershop-modern.git"
+    "url": "https://github.com/michaelgermini/PolymerShopModern.git"
   },
   "bugs": {
-    "url": "https://github.com/votre-username/polymershop-modern/issues"
+    "url": "https://github.com/michaelgermini/PolymerShopModern/issues"
   },
   "keywords": [
     "e-commerce",
@@ -25,19 +25,19 @@
     "accessibility"
   ],
   "author": {
-    "name": "Votre Nom",
-    "email": "votre.email@example.com",
-    "url": "https://github.com/votre-username"
+    "name": "Michael Germini",
+    "email": "michael@germini.info",
+    "url": "https://github.com/michaelgermini"
   },
   "contributors": [
     {
-      "name": "Votre Nom",
-      "email": "votre.email@example.com"
+      "name": "Michael Germini",
+      "email": "michael@germini.info"
     }
   ],
   "funding": {
     "type": "github",
-    "url": "https://github.com/sponsors/votre-username"
+    "url": "https://github.com/sponsors/michaelgermini"
   },
   "scripts": {
     "dev": "vite",

@@ -241,8 +241,8 @@ Ce document suit l'état d'avancement de PolymerShop Modern et les tâches resta
 
 ## 📞 Contact & Support
 
-- **Issues**: [GitHub Issues](https://github.com/votre-username/polymershop-modern/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/votre-username/polymershop-modern/discussions)
+- **Issues**: [GitHub Issues](https://github.com/michaelgermini/PolymerShopModern/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/michaelgermini/PolymerShopModern/discussions)
 - **Email**: contact@polymershop.dev
 
 ---

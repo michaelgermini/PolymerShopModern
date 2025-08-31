@@ -146,7 +146,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
-        cname: polymer-shop.netlify.app
+        cname: michaelgermini.github.io
 
   # Notification de statut
   notify:
@@ -168,9 +168,9 @@ jobs:
         echo "| Déploiement | ${{ needs.deploy.result }} |" >> status.md
         echo "" >> status.md
         echo "### 🔗 Liens importants" >> status.md
-        echo "- [Application](https://votre-username.github.io/polymershop-modern/)" >> status.md
-        echo "- [Issues](${{ github.server_url }}/${{ github.repository }}/issues)" >> status.md
-        echo "- [Pull Requests](${{ github.server_url }}/${{ github.repository }}/pulls)" >> status.md
+        echo "- [Application](https://michaelgermini.github.io/PolymerShopModern/)" >> status.md
+        echo "- [Issues](https://github.com/michaelgermini/PolymerShopModern/issues)" >> status.md
+        echo "- [Pull Requests](https://github.com/michaelgermini/PolymerShopModern/pulls)" >> status.md
         cat status.md
 
     - name: 💬 Comment PR with status
