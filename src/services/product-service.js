@@ -5,10 +5,10 @@ export class ProductService {
   constructor() {
     // Image fallback system with local placeholders
     this.imageFallbacks = {
-      electronics: './images/electronics-placeholder.svg',
-      clothing: './images/clothing-placeholder.svg',
-      home: './images/home-placeholder.svg',
-      sports: './images/sports-placeholder.svg'
+      electronics: '/images/electronics-placeholder.svg',
+      clothing: '/images/clothing-placeholder.svg',
+      home: '/images/home-placeholder.svg',
+      sports: '/images/sports-placeholder.svg'
     };
 
     this.products = [
@@ -340,7 +340,7 @@ export class ProductService {
       return this.imageFallbacks[product.category];
     }
     // Final fallback to a generic placeholder
-    return './images/default-placeholder.svg';
+    return '/images/default-placeholder.svg';
   }
 
   /**
@@ -380,7 +380,7 @@ export class ProductService {
                 resolve({
                   ...product,
                   imageLoaded: false,
-                  currentImage: './images/default-placeholder.svg',
+                  currentImage: '/images/default-placeholder.svg',
                   imageError: true
                 });
               };
@@ -389,7 +389,7 @@ export class ProductService {
               resolve({
                 ...product,
                 imageLoaded: false,
-                currentImage: './images/default-placeholder.svg',
+                currentImage: '/images/default-placeholder.svg',
                 imageError: true
               });
             }

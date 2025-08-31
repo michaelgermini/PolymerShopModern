@@ -59,24 +59,7 @@
     "analyze": "npm run build && npx vite-bundle-analyzer dist",
     "size": "npm run build && du -sh dist/*"
   },
-  "keywords": [
-    "e-commerce",
-    "web-components",
-    "lit",
-    "material-design",
-    "pwa",
-    "modern-web"
-  ],
-  "author": "Michael Germini <michael@germini.info>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/michaelgermini/polymershop-modern.git"
-  },
-  "bugs": {
-    "url": "https://github.com/michaelgermini/polymershop-modern/issues"
-  },
-  "homepage": "https://github.com/michaelgermini/polymershop-modern#readme",
+
   "dependencies": {
     "lit": "^3.1.0",
     "material-components-web": "^14.0.0"

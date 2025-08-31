@@ -1816,8 +1816,8 @@ export class PolymerShopApp extends LitElement {
     }
 
     // Précharger les images importantes (hero, produits populaires)
-    this._preloadImage('./images/hero-background.webp');
-    this._preloadImage('./images/product-placeholder.webp');
+    this._preloadImage('/images/polymershop-icon.svg');
+    this._preloadImage('/images/default-placeholder.svg');
   }
 
   /**
