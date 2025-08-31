@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/PolymerShopModern/',
+  base: '/',
   server: {
     port: 8080,
     open: true
