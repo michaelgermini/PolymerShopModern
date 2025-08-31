@@ -146,36 +146,44 @@ jobs:
         # Create .nojekyll file to prevent GitHub Pages from ignoring files starting with _
         echo "" > dist/.nojekyll
 
-        # Use Node.js to adjust paths for GitHub Pages subfolder
+        # Use Node.js to reliably update paths
         node -e "
         const fs = require('fs');
         const path = require('path');
 
         function updateFile(filePath) {
-          if (fs.existsSync(filePath)) {
-            let content = fs.readFileSync(filePath, 'utf8');
-            content = content.replace(/href=\"\//g, 'href=\"/PolymerShopModern/');
-            content = content.replace(/src=\"\//g, 'src=\"/PolymerShopModern/');
-            fs.writeFileSync(filePath, content);
+          try {
+            if (fs.existsSync(filePath)) {
+              let content = fs.readFileSync(filePath, 'utf8');
+              // Update href and src attributes
+              content = content.replace(/href=\"\//g, 'href=\"/PolymerShopModern/');
+              content = content.replace(/src=\"\//g, 'src=\"/PolymerShopModern/');
+              // Also update direct path references
+              content = content.replace(/\"\/images\//g, '\"/PolymerShopModern/images/');
+              content = content.replace(/\"\/assets\//g, '\"/PolymerShopModern/assets/');
+              fs.writeFileSync(filePath, content);
+              console.log('Updated:', filePath);
+            }
+          } catch (e) {
+            console.log('Error updating:', filePath, e.message);
           }
         }
 
-        // Update index.html
-        updateFile('dist/index.html');
-
-        // Update all HTML files in dist
-        const files = fs.readdirSync('dist');
-        files.forEach(file => {
-          if (file.endsWith('.html')) {
-            updateFile('dist/' + file);
-          }
-        });
+        // Update all HTML files
+        const htmlFiles = fs.readdirSync('dist').filter(f => f.endsWith('.html'));
+        htmlFiles.forEach(file => updateFile('dist/' + file));
 
         // Update manifest.json
         updateFile('dist/manifest.json');
 
         // Update service worker
         updateFile('dist/sw.js');
+
+        // Update JS files
+        const jsFiles = fs.readdirSync('dist/assets').filter(f => f.endsWith('.js'));
+        jsFiles.forEach(file => updateFile('dist/assets/' + file));
+
+        console.log('Path updates completed');
         "
 
     - name: 🚀 Deploy to GitHub Pages
