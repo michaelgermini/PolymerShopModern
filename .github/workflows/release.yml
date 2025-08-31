@@ -1,0 +1,107 @@
+name: 📦 Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: 📦 Install dependencies
+      run: npm ci
+
+    - name: 🏗️ Build application
+      run: npm run build
+
+    - name: 📊 Generate changelog
+      id: changelog
+      run: |
+        # Extraire le numéro de version du tag
+        VERSION=${GITHUB_REF#refs/tags/v}
+
+        # Générer un changelog simple
+        echo "## 📦 Release v${VERSION}" > changelog.md
+        echo "" >> changelog.md
+        echo "### ✨ Nouvelles fonctionnalités" >> changelog.md
+        echo "- Fonctionnalités à documenter" >> changelog.md
+        echo "" >> changelog.md
+        echo "### 🐛 Corrections" >> changelog.md
+        echo "- Corrections à documenter" >> changelog.md
+        echo "" >> changelog.md
+        echo "### 📚 Documentation" >> changelog.md
+        echo "- Mise à jour de la documentation" >> changelog.md
+        echo "" >> changelog.md
+        echo "---" >> changelog.md
+        echo "" >> changelog.md
+        echo "[📝 Voir tous les changements](${{ github.server_url }}/${{ github.repository }}/compare/v${{ github.event.repository.updated_at }}...v${VERSION})" >> changelog.md
+
+        # Sauvegarder le changelog
+        echo "changelog<<EOF" >> $GITHUB_OUTPUT
+        cat changelog.md >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+
+    - name: 🚀 Create GitHub Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: ${{ steps.changelog.outputs.changelog }}
+        draft: false
+        prerelease: false
+
+    - name: 📤 Upload Release Assets
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./dist.zip
+        asset_name: polymer-shop-v${{ github.event.inputs.version }}.zip
+        asset_content_type: application/zip
+
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: release
+    if: startsWith(github.ref, 'refs/tags/v') && !contains(github.ref, '-')
+
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+
+    - name: 📦 Install dependencies
+      run: npm ci
+
+    - name: 🏗️ Build for production
+      run: npm run build
+
+    - name: 🚀 Deploy to production
+      run: |
+        echo "🚀 Déploiement en production..."
+        # Ajouter ici les commandes de déploiement production
+        # Par exemple : rsync, FTP, API calls, etc.
+
+    - name: 📢 Notify deployment
+      run: |
+        echo "✅ Application déployée en production"
+        echo "🌐 URL: https://polymer-shop.com"
+        echo "📊 Monitoring: https://uptime.polymer-shop.com"

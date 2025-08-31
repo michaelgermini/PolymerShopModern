@@ -1,0 +1,96 @@
+{
+  "name": "polymershop-modern",
+  "version": "2.0.0",
+  "description": "A modern e-commerce application built with Lit, Web Components, and Material Design 3",
+  "type": "module",
+  "main": "index.html",
+  "homepage": "https://votre-username.github.io/polymershop-modern",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/votre-username/polymershop-modern.git"
+  },
+  "bugs": {
+    "url": "https://github.com/votre-username/polymershop-modern/issues"
+  },
+  "keywords": [
+    "e-commerce",
+    "web-components",
+    "lit",
+    "material-design",
+    "pwa",
+    "modern-web",
+    "javascript",
+    "vite",
+    "performance",
+    "accessibility"
+  ],
+  "author": {
+    "name": "Votre Nom",
+    "email": "votre.email@example.com",
+    "url": "https://github.com/votre-username"
+  },
+  "contributors": [
+    {
+      "name": "Votre Nom",
+      "email": "votre.email@example.com"
+    }
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/votre-username"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --host",
+    "deploy": "npm run build && gh-pages -d dist",
+    "deploy:ci": "npm run build && gh-pages -d dist -b gh-pages",
+    "lint": "eslint src --ext .js",
+    "lint:fix": "eslint src --ext .js --fix",
+    "format": "prettier --write \"src/**/*.{js,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,json,css,md}\"",
+    "audit:perf": "node performance-audit.js",
+    "audit:acc": "node -e \"import('./test-accessibility-simple.js')\"",
+    "audit:sec": "npm audit",
+    "test": "echo \"Tests à implémenter - voir TODO.md\"",
+    "predeploy": "npm run build",
+    "clean": "rm -rf dist node_modules/.vite",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist",
+    "size": "npm run build && du -sh dist/*"
+  },
+  "keywords": [
+    "e-commerce",
+    "web-components",
+    "lit",
+    "material-design",
+    "pwa",
+    "modern-web"
+  ],
+  "author": "Michael Germini <michael@germini.info>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelgermini/polymershop-modern.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelgermini/polymershop-modern/issues"
+  },
+  "homepage": "https://github.com/michaelgermini/polymershop-modern#readme",
+  "dependencies": {
+    "lit": "^3.1.0",
+    "material-components-web": "^14.0.0"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.3",
+    "axe-playwright": "^2.1.0",
+    "gh-pages": "^6.0.0",
+    "lighthouse": "^12.8.2",
+    "puppeteer": "^24.17.1",
+    "vite": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
