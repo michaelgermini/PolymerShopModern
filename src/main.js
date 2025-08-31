@@ -52,6 +52,520 @@ export class PolymerShopApp extends LitElement {
       align-items: center;
     }
 
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(20px);
+      border-radius: 12px;
+      padding: 1rem 0;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-dropdown:hover .nav-dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      color: #e8e8e8;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #e8e8e8;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn:hover {
+      color: #ffffff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #e8e8e8;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(15, 76, 117, 0.8), rgba(50, 130, 184, 0.8)),
+                  url('/images/hero-background.webp') center/cover;
+      animation: hero-bg 20s ease-in-out infinite;
+    }
+
+    @keyframes hero-bg {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+      background: linear-gradient(45deg, #ffffff, #bbe1fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 6rem 2rem;
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(10px);
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #e8e8e8;
+    }
+
+    .feature-description {
+      color: #b8b8b8;
+      line-height: 1.6;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, rgba(15, 76, 117, 0.9), rgba(50, 130, 184, 0.9));
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #ffffff;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #e8e8e8;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .author-info h4 {
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .author-info p {
+      margin: 0;
+      color: #b8b8b8;
+      font-size: 0.9rem;
+    }
+
+    /* Newsletter Section */
+    .newsletter {
+      padding: 4rem 2rem;
+      background: rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .newsletter-subtitle {
+      color: #b8b8b8;
+      margin-bottom: 2rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 1rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+      font-size: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: #00d4aa;
+    }
+
+    .newsletter-input::placeholder {
+      color: #b8b8b8;
+    }
+
+    .newsletter-btn {
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0,0,0,0.8);
+      padding: 3rem 2rem 1rem;
+      color: #b8b8b8;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #b8b8b8;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #00d4aa;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #00d4aa;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-bottom-links a {
+      color: #b8b8b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #00d4aa;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
     .search-container {
       position: relative;
       display: flex;
@@ -2753,36 +3267,280 @@ export class PolymerShopApp extends LitElement {
 
         <!-- Main Content -->
         <main class="main-content" role="main" aria-label="Main content">
-          ${this.currentView === 'home' ? this.renderHome() :
+          ${this.currentView === 'home' ? this.renderEnhancedHome() :
             this.currentView === 'products' ? this.renderProducts() :
             this.currentView === 'product-detail' ? this.renderProductDetail() :
             this.currentView === 'cart' ? this.renderCart() :
             this.currentView === 'about' ? this.renderAbout() :
             this.currentView === 'contact' ? this.renderContact() :
-            this.renderHome()}
+            this.renderEnhancedHome()}
         </main>
-          <!-- Hero Section -->
-          <section class="hero-section animate-fade-in-up animate-delay-1">
-            <h1 class="hero-title animate-float">Welcome to OceanShop Modern</h1>
-            <p class="hero-subtitle">
-              Dive into our collection of modern products with an exceptional e-commerce experience.
-              Hybrid interface combining ocean-inspired design and advanced features.
-            </p>
-            <button class="cta-button animate-pulse" @click="${() => console.log('CTA clicked')}">
-              Discover Our Products
-            </button>
-          </section>
 
-          <!-- Status Section -->
-          <section class="status-section animate-scale-in animate-delay-2">
-            <h3 class="status-title">✅ Application Loaded Successfully!</h3>
-            <p class="status-text">
-              OceanShop Modern v2.0.0 - Fully functional hybrid interface with all modern technologies
-            </p>
-          </section>
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-container">
+            <div class="footer-grid">
+              <div class="footer-section">
+                <h3>🌊 PolymerShop</h3>
+                <p>Your modern e-commerce destination for quality products and exceptional service.</p>
+                <div class="footer-social">
+                  <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                  <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                  <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                  <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                </div>
+              </div>
 
-          <!-- Products Section -->
-          <section class="products-section animate-fade-in-up animate-delay-3">
+              <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#products">Products</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul class="footer-links">
+                  <li><a href="#shipping">Shipping Info</a></li>
+                  <li><a href="#returns">Returns</a></li>
+                  <li><a href="#faq">FAQ</a></li>
+                  <li><a href="#support">Support</a></li>
+                </ul>
+              </div>
+
+              <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get special offers and updates.</p>
+                <div class="newsletter-form">
+                  <input type="email" placeholder="Your email" class="newsletter-input">
+                  <button class="newsletter-btn">Subscribe</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer-bottom">
+              <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+              <div class="footer-bottom-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#cookies">Cookie Policy</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    `;
+  }
+
+  // Nouvelle méthode pour la page d'accueil améliorée
+  renderEnhancedHome() {
+    return html`
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+          <h1 class="hero-title">Welcome to PolymerShop Modern</h1>
+          <p class="hero-subtitle">
+            Discover our curated collection of premium products with cutting-edge technology and exceptional design.
+            Experience the future of online shopping today.
+          </p>
+          <div class="hero-buttons">
+            <a href="#products" class="btn-primary" @click="${() => this.navigateTo('products')}">
+              🛍️ Shop Now
+            </a>
+            <a href="#about" class="btn-secondary" @click="${() => this.navigateTo('about')}">
+              📖 Learn More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features">
+        <div class="features-container">
+          <h2 class="features-title">Why Choose PolymerShop?</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3 class="feature-title">Lightning Fast</h3>
+              <p class="feature-description">
+                Experience blazing-fast performance with our optimized platform and instant loading times.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🔒</div>
+              <h3 class="feature-title">Secure Shopping</h3>
+              <p class="feature-description">
+                Your security is our priority. Enjoy safe transactions with bank-level encryption.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">📱</div>
+              <h3 class="feature-title">Mobile First</h3>
+              <p class="feature-description">
+                Perfectly optimized for all devices. Shop seamlessly on desktop, tablet, or mobile.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">🚚</div>
+              <h3 class="feature-title">Free Shipping</h3>
+              <p class="feature-description">
+                Free worldwide shipping on all orders over €50. Fast delivery guaranteed.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">↩️</div>
+              <h3 class="feature-title">Easy Returns</h3>
+              <p class="feature-description">
+                Not satisfied? Return any item within 30 days for a full refund. No questions asked.
+              </p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon">💬</div>
+              <h3 class="feature-title">24/7 Support</h3>
+              <p class="feature-description">
+                Our expert support team is here to help you 24 hours a day, 7 days a week.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="products-section">
+        <div class="features-container">
+          <h2 class="features-title">Featured Products</h2>
+          <div class="features-grid">
+            ${this.getFeaturedProducts().map((product, index) => html`
+              <div class="product-card" @click="${() => this.navigateTo('product-detail', product)}">
+                <div class="product-image">
+                  ${this.renderProductImage(product.image)}
+                </div>
+                <div class="product-info">
+                  <h3 class="product-name">${product.name}</h3>
+                  <p class="product-description">${product.description}</p>
+                  <div class="product-price">€${product.price.toFixed(2)}</div>
+                  <button
+                    class="add-to-cart"
+                    @click="${(e) => { e.stopPropagation(); this.addToCart(product); }}"
+                    aria-label="Add ${product.name} to shopping cart"
+                    type="button"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            `)}
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials">
+        <div class="testimonials-container">
+          <h2 class="testimonials-title">What Our Customers Say</h2>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "PolymerShop exceeded my expectations! The product quality is outstanding and the delivery was incredibly fast.
+                I highly recommend this platform for anyone looking for premium electronics."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">SM</div>
+                <div class="author-info">
+                  <h4>Sarah Mitchell</h4>
+                  <p>Verified Customer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "The customer service is phenomenal! They helped me choose the perfect laptop for my needs and answered all my questions.
+                Shopping here feels personal and trustworthy."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">JD</div>
+                <div class="author-info">
+                  <h4>James Davis</h4>
+                  <p>Tech Enthusiast</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "I've been shopping with PolymerShop for over a year now. Their product selection is always top-notch,
+                and the prices are competitive. Definitely my go-to online store!"
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">EW</div>
+                <div class="author-info">
+                  <h4>Emily Wilson</h4>
+                  <p>Loyal Customer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter Section -->
+      <section class="newsletter">
+        <div class="newsletter-container">
+          <h2 class="newsletter-title">Stay Updated</h2>
+          <p class="newsletter-subtitle">
+            Subscribe to our newsletter and be the first to know about new products, exclusive deals, and special offers.
+          </p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" class="newsletter-input">
+            <button class="newsletter-btn" @click="${this.subscribeNewsletter}">Subscribe</button>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  // Méthode pour obtenir les produits populaires
+  getFeaturedProducts() {
+    return this.allProducts.slice(0, 6); // Retourne les 6 premiers produits
+  }
+
+  // Méthode pour l'inscription à la newsletter
+  subscribeNewsletter() {
+    const emailInput = this.shadowRoot.querySelector('.newsletter-input');
+    const email = emailInput?.value?.trim();
+
+    if (!email) {
+      alert('Please enter your email address.');
+      return;
+    }
+
+    if (!this.isValidEmail(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    // Simulation de l'inscription
+    alert(`Thank you for subscribing! We'll send updates to ${email}`);
+    emailInput.value = '';
+  }
+
+  // Validation d'email simple
+  isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Ancienne méthode renderHome (maintenir pour compatibilité)
             <h2 class="section-title">
               ${this.searchQuery ? `Results for "${this.searchQuery}"` : 'Our Popular Products'}
             </h2>
