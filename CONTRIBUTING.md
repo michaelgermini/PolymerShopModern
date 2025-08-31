@@ -1,26 +1,26 @@
-# 🤝 Guide de Contribution - PolymerShop Modern
+# 🤝 Contributing Guide - PolymerShop Modern
 
-Bienvenue ! Nous sommes ravis que vous souhaitiez contribuer à PolymerShop Modern. Ce guide vous aidera à comprendre comment contribuer efficacement à ce projet.
+Welcome! We're excited that you want to contribute to PolymerShop Modern. This guide will help you understand how to contribute effectively to this project.
 
-## 📋 Table des Matières
+## 📋 Table of Contents
 
-- [Code de Conduite](#code-de-conduite)
-- [Comment Contribuer](#comment-contribuer)
-- [Configuration de l'Environnement](#configuration-de-lenvironnement)
-- [Structure du Projet](#structure-du-projet)
-- [Guidelines de Développement](#guidelines-de-développement)
-- [Processus de Pull Request](#processus-de-pull-request)
-- [Tests et Qualité](#tests-et-qualité)
+- [Code of Conduct](#code-of-conduct)
+- [How to Contribute](#how-to-contribute)
+- [Environment Setup](#environment-setup)
+- [Project Structure](#project-structure)
+- [Development Guidelines](#development-guidelines)
+- [Pull Request Process](#pull-request-process)
+- [Tests and Quality](#tests-and-quality)
 
-## 🤝 Code de Conduite
+## 🤝 Code of Conduct
 
-Ce projet suit un code de conduite pour assurer un environnement accueillant pour tous. En participant, vous acceptez de :
+This project follows a code of conduct to ensure a welcoming environment for everyone. By participating, you agree to:
 
-- 🎯 Être respectueux et inclusif
-- 🤝 Collaborer constructivement
-- 🔍 Respecter les opinions divergentes
-- 📝 Fournir un feedback utile
-- 🎉 Célébrer les succès de l'équipe
+- 🎯 Be respectful and inclusive
+- 🤝 Collaborate constructively
+- 🔍 Respect differing opinions
+- 📝 Provide helpful feedback
+- 🎉 Celebrate team successes
 
 ## 🚀 Comment Contribuer
 

@@ -6,222 +6,222 @@
 [![Vite](https://img.shields.io/badge/Vite-5.0+-purple.svg)](https://vitejs.dev/)
 [![PWA](https://img.shields.io/badge/PWA-Ready-green.svg)](https://web.dev/progressive-web-apps/)
 
-> Une application e-commerce moderne et performante construite avec Lit, Web Components et Material Design 3
+> A modern and performant e-commerce application built with Lit, Web Components, and Material Design 3
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-### 🛍️ **E-commerce Complet**
-- 🏪 Catalogue de produits avec catégories
-- 🔍 Recherche et filtrage avancés
-- 🛒 Panier d'achat avec persistance
-- 👤 Gestion des utilisateurs
-- 📱 Interface responsive
+### 🛍️ **Complete E-commerce**
+- 🏪 Product catalog with categories
+- 🔍 Advanced search and filtering
+- 🛒 Shopping cart with persistence
+- 👤 User management
+- 📱 Responsive interface
 
-### ⚡ **Performance Optimisée**
-- 🚀 Core Web Vitals optimisés
-- 📦 Code splitting intelligent
-- 🖼️ Lazy loading des images
-- 💾 Cache DOM optimisé
-- 🔄 Service Worker pour PWA
+### ⚡ **Optimized Performance**
+- 🚀 Optimized Core Web Vitals
+- 📦 Intelligent code splitting
+- 🖼️ Image lazy loading
+- 💾 Optimized DOM caching
+- 🔄 Service Worker for PWA
 
-### ♿ **Accessibilité**
+### ♿ **Accessibility**
 - ✅ WCAG 2.1 AA compliant
-- ⌨️ Navigation clavier complète
-- 🔊 Support lecteurs d'écran
-- 🎨 Contraste élevé
-- 📱 Navigation mobile optimisée
+- ⌨️ Complete keyboard navigation
+- 🔊 Screen reader support
+- 🎨 High contrast
+- 📱 Mobile navigation optimized
 
-### 🎨 **Design Moderne**
-- 🌊 Thème océan inspiré
+### 🎨 **Modern Design**
+- 🌊 Ocean-inspired theme
 - 🎭 Material Design 3
-- 🌙 Mode sombre/clair
-- 📐 Animations fluides
-- 🎯 Interface intuitive
+- 🌙 Dark/light mode
+- 📐 Smooth animations
+- 🎯 Intuitive interface
 
-## 🚀 Démarrage Rapide
+## 🚀 Quick Start
 
-### Prérequis
+### Prerequisites
 - Node.js >= 18.0.0
 - npm >= 8.0.0
 
 ### Installation
 
 ```bash
-# Cloner le repository
+# Clone the repository
 git clone https://github.com/michaelgermini/PolymerShopModern.git
-cd polymershop-modern
+cd PolymerShopModern
 
-# Installer les dépendances
+# Install dependencies
 npm install
 
-# Démarrer le serveur de développement
+# Start development server
 npm run dev
 ```
 
-Ouvrez [http://localhost:8080](http://localhost:8080) dans votre navigateur.
+Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-### Build pour la production
+### Build for Production
 
 ```bash
-# Build optimisé
+# Optimized build
 npm run build
 
-# Prévisualisation du build
+# Preview the build
 npm run preview
 
-# Déploiement sur GitHub Pages
+# Deploy to GitHub Pages
 npm run deploy
 ```
 
-## 📁 Structure du Projet
+## 📁 Project Structure
 
 ```
-polymershop-modern/
+PolymerShopModern/
 ├── 📁 src/
-│   ├── 📄 main.js                 # Point d'entrée principal
-│   ├── 📄 app.js                  # Application principale
+│   ├── 📄 main.js                 # Main entry point
+│   ├── 📄 app.js                  # Main application
 │   ├── 📁 components/
-│   │   ├── 📄 app-shell.js       # Shell de l'application
-│   │   └── 📄 product-catalog.js # Catalogue de produits
+│   │   ├── 📄 app-shell.js       # Application shell
+│   │   └── 📄 product-catalog.js # Product catalog
 │   ├── 📁 services/
-│   │   ├── 📄 cart-service.js    # Service panier
-│   │   └── 📄 product-service.js # Service produits
-│   └── 📄 fallback-app.js        # Application de secours
+│   │   ├── 📄 cart-service.js    # Cart service
+│   │   └── 📄 product-service.js # Product service
+│   └── 📄 fallback-app.js        # Fallback application
 ├── 📁 public/
-│   ├── 📄 manifest.json          # Manifest PWA
-│   └── 🖼️ images/               # Assets statiques
-├── 📄 index.html                 # Point d'entrée HTML
-├── 📄 vite.config.js             # Configuration Vite
-├── 📄 package.json               # Dépendances et scripts
+│   ├── 📄 manifest.json          # PWA manifest
+│   └── 🖼️ images/               # Static assets
+├── 📄 index.html                 # HTML entry point
+├── 📄 vite.config.js             # Vite configuration
+├── 📄 package.json               # Dependencies and scripts
 └── 📄 README.md                  # Documentation
 ```
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Technologies Used
 
 ### Core Framework
-- **[Lit](https://lit.dev/)** - Framework Web Components
-- **[Vite](https://vitejs.dev/)** - Build tool ultra-rapide
-- **[JavaScript ES6+](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Langage moderne
+- **[Lit](https://lit.dev/)** - Web Components framework
+- **[Vite](https://vitejs.dev/)** - Ultra-fast build tool
+- **[JavaScript ES6+](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Modern language
 
 ### UI/UX
-- **Material Design 3** - Design system Google
-- **CSS Custom Properties** - Variables CSS
-- **CSS Grid & Flexbox** - Layout moderne
-- **Animations CSS** - Transitions fluides
+- **Material Design 3** - Google design system
+- **CSS Custom Properties** - CSS variables
+- **CSS Grid & Flexbox** - Modern layout
+- **CSS Animations** - Smooth transitions
 
 ### Performance
-- **Code Splitting** - Chargement modulaire
-- **Lazy Loading** - Images à la demande
-- **Service Worker** - Cache offline
-- **PWA** - Application web progressive
+- **Code Splitting** - Modular loading
+- **Lazy Loading** - Images on demand
+- **Service Worker** - Offline cache
+- **PWA** - Progressive web application
 
-### Outils de Développement
-- **ESLint** - Linting JavaScript
-- **Prettier** - Formatage automatique
-- **Lighthouse** - Audit performance
+### Development Tools
+- **ESLint** - JavaScript linting
+- **Prettier** - Automatic formatting
+- **Lighthouse** - Performance audit
 - **GitHub Actions** - CI/CD
 
-## 🎯 Scripts Disponibles
+## 🎯 Available Scripts
 
 ```bash
-# Développement
-npm run dev          # Serveur de développement
-npm run build        # Build de production
-npm run preview      # Prévisualisation du build
+# Development
+npm run dev          # Development server
+npm run build        # Production build
+npm run preview      # Preview build
 
-# Qualité du code
-npm run lint         # Vérification ESLint
-npm run format       # Formatage avec Prettier
+# Code quality
+npm run lint         # ESLint check
+npm run format       # Prettier formatting
 
-# Déploiement
-npm run deploy       # Déploiement GitHub Pages
+# Deployment
+npm run deploy       # GitHub Pages deployment
 
-# Tests et audits
-npm run audit:perf   # Audit de performance
-npm run audit:acc    # Audit d'accessibilité
-npm run test         # Tests unitaires
+# Tests and audits
+npm run audit:perf   # Performance audit
+npm run audit:acc    # Accessibility audit
+npm run test         # Unit tests
 ```
 
-## 📊 Métriques de Performance
+## 📊 Performance Metrics
 
-### Core Web Vitals (Cibles)
+### Core Web Vitals (Targets)
 - **LCP** (Largest Contentful Paint): < 2.5s ⚡
 - **FID** (First Input Delay): < 100ms ⚡
 - **CLS** (Cumulative Layout Shift): < 0.1 ⚡
 
-### Scores Lighthouse (Moyenne)
+### Lighthouse Scores (Average)
 - **Performance**: 90/100 🌟
-- **Accessibilité**: 95/100 ♿
-- **Bonnes pratiques**: 95/100 ✅
+- **Accessibility**: 95/100 ♿
+- **Best Practices**: 95/100 ✅
 - **SEO**: 90/100 🔍
 
-## ♿ Accessibilité
+## ♿ Accessibility
 
-PolymerShop respecte les guidelines WCAG 2.1 niveau AA :
+PolymerShop follows WCAG 2.1 AA guidelines:
 
-- ✅ **Navigation clavier** complète
-- ✅ **Support lecteurs d'écran** (NVDA, JAWS, VoiceOver)
-- ✅ **Contraste des couleurs** élevé (4.5:1 minimum)
-- ✅ **Structure sémantique** HTML5
-- ✅ **Attributs ARIA** appropriés
+- ✅ **Complete keyboard navigation**
+- ✅ **Screen reader support** (NVDA, JAWS, VoiceOver)
+- ✅ **High color contrast** (4.5:1 minimum)
+- ✅ **Semantic HTML5 structure**
+- ✅ **Appropriate ARIA attributes**
 
-### Tests d'Accessibilité
+### Accessibility Tests
 ```bash
-# Test automatisé dans le navigateur
+# Automated browser test
 import('./test-accessibility-simple.js');
 runAccessibilityCheck();
 
-# Audit complet avec axe-core
+# Complete audit with axe-core
 npm run audit:acc
 ```
 
-## 🚀 Déploiement
+## 🚀 Deployment
 
 ### GitHub Pages
 ```bash
-# Build et déploiement automatique
+# Build and automatic deployment
 npm run deploy
 
-# Ou manuellement
+# Or manually
 npm run build
 npx gh-pages -d dist
 ```
 
-### Autres Plateformes
-- **Vercel**: Connexion GitHub automatique
-- **Netlify**: Déploiement par drag & drop
-- **Railway**: Déploiement depuis GitHub
-- **Heroku**: Buildpack Node.js
+### Other Platforms
+- **Vercel**: Automatic GitHub connection
+- **Netlify**: Drag & drop deployment
+- **Railway**: Deployment from GitHub
+- **Heroku**: Node.js buildpack
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-Les contributions sont les bienvenues ! 🎉
+Contributions are welcome! 🎉
 
-### Processus
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+### Process
+1. Fork the project
+2. Create a branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ### Guidelines
-- 📝 Suivre les [Conventional Commits](https://conventionalcommits.org/)
-- 🧪 Tests pour les nouvelles fonctionnalités
-- ♿ Respecter l'accessibilité WCAG 2.1 AA
-- 📊 Maintenir les performances Core Web Vitals
-- 🎨 Respecter le design system Material Design 3
+- 📝 Follow [Conventional Commits](https://conventionalcommits.org/)
+- 🧪 Tests for new features
+- ♿ Respect WCAG 2.1 AA accessibility
+- 📊 Maintain Core Web Vitals performance
+- 🎨 Respect Material Design 3 design system
 
-## 📝 Licence
+## 📝 License
 
-Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
+Distributed under the MIT License. See `LICENSE` for more information.
 
-## 🙏 Remerciements
+## 🙏 Acknowledgments
 
-- **[Lit](https://lit.dev/)** - Framework Web Components
-- **[Vite](https://vitejs.dev/)** - Build tool révolutionnaire
-- **[Material Design](https://material.io/)** - Design system Google
-- **[Lighthouse](https://developers.google.com/web/tools/lighthouse/)** - Outil d'audit
-- **[Web.dev](https://web.dev/)** - Ressources performance
+- **[Lit](https://lit.dev/)** - Web Components framework
+- **[Vite](https://vitejs.dev/)** - Revolutionary build tool
+- **[Material Design](https://material.io/)** - Google design system
+- **[Lighthouse](https://developers.google.com/web/tools/lighthouse/)** - Audit tool
+- **[Web.dev](https://web.dev/)** - Performance resources
 
 ## 📞 Support
 
@@ -232,30 +232,30 @@ Distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations.
 
 ## 🔄 Roadmap
 
-### v2.1.0 (Prochaine version)
-- [ ] 🛒 Intégration Stripe pour paiements
-- [ ] 📱 Mode hors ligne amélioré
-- [ ] 🎨 Thèmes personnalisables
-- [ ] 🔍 Recherche avancée avec filtres
-- [ ] 📊 Analytics et métriques utilisateur
+### v2.1.0 (Next Version)
+- [ ] 🛒 Stripe payment integration
+- [ ] 📱 Improved offline mode
+- [ ] 🎨 Customizable themes
+- [ ] 🔍 Advanced search with filters
+- [ ] 📊 Analytics and user metrics
 
-### v2.2.0 (Futur)
-- [ ] 🌐 Internationalisation (i18n)
-- [ ] 🔔 Notifications push
-- [ ] 👥 Système de commentaires/avis
-- [ ] 📱 Application mobile native
-- [ ] 🤖 Chatbot d'assistance
+### v2.2.0 (Future)
+- [ ] 🌐 Internationalization (i18n)
+- [ ] 🔔 Push notifications
+- [ ] 👥 Review/comment system
+- [ ] 📱 Native mobile app
+- [ ] 🤖 Assistant chatbot
 
 ---
 
 <div align="center">
 
-**Fait avec ❤️ par [Michael Germini](https://github.com/michaelgermini)**
+**Made with ❤️ by [Michael Germini](https://github.com/michaelgermini)**
 
-⭐ Si ce projet vous plaît, n'hésitez pas à lui donner une étoile !
+⭐ If you like this project, don't forget to give it a star!
 
-[🚀 Démo en ligne](https://michaelgermini.github.io/PolymerShopModern/) •
+[🚀 Live Demo](https://michaelgermini.github.io/PolymerShopModern/) •
 [📖 Documentation](https://github.com/michaelgermini/PolymerShopModern/wiki) •
-[🐛 Signaler un bug](https://github.com/michaelgermini/PolymerShopModern/issues)
+[🐛 Report a Bug](https://github.com/michaelgermini/PolymerShopModern/issues)
 
 </div>

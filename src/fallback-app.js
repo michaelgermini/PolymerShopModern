@@ -34,8 +34,8 @@ class FallbackPolymerShop {
         buttonText: "Shop Now",
         buttonLink: "#catalog",
         background: "linear-gradient(135deg, rgba(30, 95, 116, 0.8) 0%, rgba(44, 125, 160, 0.8) 100%)",
-        image: "/images/slider-summer-2025.svg",
-        fallbackImage: "/images/ocean-placeholder.svg"
+        image: "./images/slider-summer-2025.svg",
+        fallbackImage: "./images/ocean-placeholder.svg"
       },
       {
         id: 2,
@@ -44,8 +44,8 @@ class FallbackPolymerShop {
         buttonText: "Discover",
         buttonLink: "#electronics",
         background: "linear-gradient(135deg, rgba(15, 48, 87, 0.8) 0%, rgba(30, 95, 116, 0.8) 100%)",
-        image: "/images/slider-electronics.svg",
-        fallbackImage: "/images/electronics-placeholder.svg"
+        image: "./images/slider-electronics.svg",
+        fallbackImage: "./images/electronics-placeholder.svg"
       },
       {
         id: 3,
@@ -54,8 +54,8 @@ class FallbackPolymerShop {
         buttonText: "Explore",
         buttonLink: "#clothing",
         background: "linear-gradient(135deg, rgba(44, 125, 160, 0.8) 0%, rgba(77, 208, 225, 0.8) 100%)",
-        image: "/images/slider-fashion.svg",
-        fallbackImage: "/images/clothing-placeholder.svg"
+        image: "./images/slider-fashion.svg",
+        fallbackImage: "./images/clothing-placeholder.svg"
       }
     ];
     this.sliderInterval = null;
@@ -284,7 +284,7 @@ class FallbackPolymerShop {
           </a>
         </div>
         <div class="slide-image">
-          <img src="${slide.image}" alt="${slide.title}" onerror="this.src='${slide.fallbackImage}'" loading="lazy">
+          <img src="${slide.image}" alt="${slide.title}" onerror="this.src='${slide.fallbackImage}'" loading="lazy" decoding="async">
         </div>
       </div>
     `;
@@ -3471,7 +3471,7 @@ class FallbackPolymerShop {
       // Add error handling for image loading
       image.onerror = () => {
         console.warn(`Image failed to load for ${product.name}, using fallback`);
-        image.src = product.fallbackImage || '/images/default-placeholder.svg';
+        image.src = product.fallbackImage || './images/default-placeholder.svg';
       };
 
       image.onload = () => {
@@ -3643,7 +3643,7 @@ class FallbackPolymerShop {
           ❤️
         </button>
         <div style="position: relative; width: 100%; height: 150px; margin-bottom: 16px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.05);">
-          <img src="${imageSrc}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" onerror="this.src='/images/default-placeholder.svg'">
+          <img src="${imageSrc}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" onerror="this.src='./images/default-placeholder.svg'">
         </div>
         <h3 style="margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 600;">${product.name}</h3>
         <p style="color: #b8b8b8; margin: 0 0 12px 0; font-size: 0.9rem; line-height: 1.4;">${product.description}</p>
@@ -3711,7 +3711,7 @@ class FallbackPolymerShop {
 
       itemDiv.innerHTML = `
         <div style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.05);">
-          <img src="${itemImageSrc}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='/images/default-placeholder.svg'">
+          <img src="${itemImageSrc}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" decoding="async" onerror="this.src='./images/default-placeholder.svg'">
         </div>
         <div style="flex: 1;">
           <h3 style="margin: 0 0 4px 0; font-size: 1.2rem; font-weight: 600;">${item.name}</h3>
