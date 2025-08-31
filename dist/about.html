@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - PolymerShop Modern</title>
+  <meta name="description" content="Learn about PolymerShop Modern - our story, mission, values, and commitment to quality e-commerce experiences">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/polymershop-icon.svg">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#2196f3">
+  <meta name="color-scheme" content="light dark">
+
+  <style>
+    :root {
+      /* 🎨 Ocean Theme - Deep and soothing oceanic colors */
+      --ocean-deep: #0a1929;
+      --ocean-dark: #0f3057;
+      --ocean-primary: #1e5f74;
+      --ocean-secondary: #2c7da0;
+      --ocean-accent: #4dd0e1;
+      --ocean-light: #a8dadc;
+      --ocean-sand: #f1faee;
+      --ocean-white: #ffffff;
+      --text-primary: #f1faee;
+      --text-secondary: #a8dadc;
+      --text-muted: #6c7b95;
+      --shadow-ocean: 0 8px 32px rgba(14, 48, 87, 0.3);
+      --shadow-ocean-light: 0 4px 16px rgba(14, 48, 87, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f4c75 0%, #3282b8 25%, #bbe1fa 50%, #3282b8 75%, #0f4c75 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(15px);
+      color: #e8e8e8;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      color: #e8e8e8;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+    }
+
+    .cart-button {
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+    }
+
+    .cart-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .about-hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      margin-bottom: 3rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #ffffff, #bbe1fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      color: #b8b8b8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Story Section */
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+
+    .story-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .story-content p {
+      margin-bottom: 1.5rem;
+      color: #b8b8b8;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .story-image {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .story-image svg {
+      width: 200px;
+      height: 200px;
+      opacity: 0.8;
+    }
+
+    /* Values Section */
+    .values-section {
+      margin-bottom: 4rem;
+    }
+
+    .values-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .value-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .value-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #e8e8e8;
+    }
+
+    .value-description {
+      color: #b8b8b8;
+      line-height: 1.6;
+    }
+
+    /* Team Section */
+    .team-section {
+      margin-bottom: 4rem;
+    }
+
+    .team-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #ffffff;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-member {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .member-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 auto 1rem;
+    }
+
+    .member-name {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .member-role {
+      color: #00d4aa;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .member-bio {
+      color: #b8b8b8;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Stats Section */
+    .stats-section {
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      margin-bottom: 4rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #00d4aa;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #b8b8b8;
+      font-size: 1rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(45deg, rgba(0, 212, 170, 0.1), rgba(0, 180, 216, 0.1));
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 212, 170, 0.2);
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .cta-subtitle {
+      color: #b8b8b8;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #00d4aa, #00b4d8);
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0,0,0,0.8);
+      padding: 3rem 2rem 1rem;
+      color: #b8b8b8;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .story-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .story-content h2 {
+        font-size: 2rem;
+      }
+
+      .values-title,
+      .team-title {
+        font-size: 2rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        🌊 PolymerShop Modern
+      </div>
+      <nav class="nav">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/all-categories.html" class="nav-item">Products</a>
+        <a href="/about.html" class="nav-item">About</a>
+        <a href="/contact.html" class="nav-item">Contact</a>
+      </nav>
+      <button class="cart-button">
+        🛒 Cart (0)
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- About Hero -->
+    <section class="about-hero">
+      <h1>About PolymerShop Modern</h1>
+      <p>
+        We're revolutionizing the e-commerce experience with cutting-edge technology,
+        exceptional design, and unwavering commitment to customer satisfaction.
+      </p>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story-section">
+      <div class="story-content">
+        <h2>Our Story</h2>
+        <p>
+          Founded in 2024, PolymerShop Modern emerged from a simple vision: to create
+          an e-commerce platform that seamlessly blends modern web technologies with
+          exceptional user experiences. Our journey began with a passion for innovation
+          and a commitment to pushing the boundaries of what's possible in online retail.
+        </p>
+        <p>
+          We believe that shopping should be more than just transactions—it should be
+          an enjoyable, seamless experience that delights customers at every touchpoint.
+          That's why we've built PolymerShop using the latest web technologies, ensuring
+          lightning-fast performance and intuitive navigation.
+        </p>
+        <p>
+          Today, we're proud to serve thousands of customers worldwide, offering a curated
+          selection of premium products with uncompromising quality and service excellence.
+        </p>
+      </div>
+      <div class="story-image">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#00d4aa" stroke-width="2" opacity="0.3"/>
+          <circle cx="50" cy="50" r="30" fill="none" stroke="#00b4d8" stroke-width="2" opacity="0.5"/>
+          <circle cx="50" cy="50" r="20" fill="none" stroke="#4dd0e1" stroke-width="2" opacity="0.7"/>
+          <circle cx="50" cy="50" r="10" fill="#4dd0e1" opacity="0.9"/>
+          <path d="M30 30 L70 70 M70 30 L30 70" stroke="#ffffff" stroke-width="1"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values-section">
+      <h2 class="values-title">Our Core Values</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🚀</div>
+          <h3 class="value-title">Innovation</h3>
+          <p class="value-description">
+            We constantly push the boundaries of e-commerce technology, adopting the latest
+            innovations to provide cutting-edge shopping experiences.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">💎</div>
+          <h3 class="value-title">Quality</h3>
+          <p class="value-description">
+            Every product in our catalog meets rigorous quality standards. We partner only
+            with trusted manufacturers and suppliers.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3 class="value-title">Customer First</h3>
+          <p class="value-description">
+            Our customers are at the heart of everything we do. We listen, learn, and adapt
+            to provide the best possible service and experience.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3 class="value-title">Sustainability</h3>
+          <p class="value-description">
+            We're committed to environmental responsibility, working with eco-friendly
+            suppliers and implementing sustainable business practices.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🔒</div>
+          <h3 class="value-title">Trust & Security</h3>
+          <p class="value-description">
+            Your security and privacy are paramount. We employ bank-level encryption and
+            follow industry best practices to protect your data.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">💪</div>
+          <h3 class="value-title">Excellence</h3>
+          <p class="value-description">
+            We strive for excellence in every aspect of our business, from customer service
+            to technical performance and user experience.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="team-section">
+      <h2 class="team-title">Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-avatar">MG</div>
+          <h3 class="member-name">Michael Germini</h3>
+          <p class="member-role">Founder & CEO</p>
+          <p class="member-bio">
+            Visionary entrepreneur with 10+ years in e-commerce and web technologies.
+            Passionate about creating exceptional digital experiences.
+          </p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-avatar">SD</div>
+          <h3 class="member-name">Sarah Davis</h3>
+          <p class="member-role">Head of Product</p>
+          <p class="member-bio">
+            Product strategist ensuring our platform meets customer needs while maintaining
+            cutting-edge technology standards.
+          </p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-avatar">AC</div>
+          <h3 class="member-name">Alex Chen</h3>
+          <p class="member-role">Lead Developer</p>
+          <p class="member-bio">
+            Full-stack developer specializing in modern web technologies and scalable
+            e-commerce solutions.
+          </p>
+        </div>
+
+        <div class="team-member">
+          <div class="member-avatar">JR</div>
+          <h3 class="member-name">Jessica Rodriguez</h3>
+          <p class="member-role">Customer Success Manager</p>
+          <p class="member-bio">
+            Dedicated to ensuring every customer has an exceptional experience with
+            our products and services.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Quality Products</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Countries Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">99.9%</div>
+          <div class="stat-label">Uptime</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Experience the Future of Shopping?</h2>
+      <p class="cta-subtitle">
+        Join thousands of satisfied customers and discover why PolymerShop Modern
+        is the preferred choice for quality products and exceptional service.
+      </p>
+      <div class="cta-buttons">
+        <a href="/" class="btn-primary">
+          🛍️ Start Shopping
+        </a>
+        <a href="/contact.html" class="btn-secondary">
+          📞 Contact Us
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 PolymerShop Modern. All rights reserved.</p>
+    <p>Built with ❤️ using modern web technologies</p>
+  </footer>
+</body>
+</html>
